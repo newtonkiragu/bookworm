@@ -10,7 +10,6 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @books = Book.all
   end
 
   # GET /books/new
@@ -26,7 +25,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @user = current_user
+    @book = @user.books.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -71,6 +71,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :content)
+      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :content, :user_id)
     end
 end
