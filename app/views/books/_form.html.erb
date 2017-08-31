@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :picture %>
-    <%= form.text_field :picture, id: :book_picture %>
+    <%= form.file_field :picture, id: :book_picture %>
   </div>
 
   <div class="field">
@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :language %>
-    <%= form.text_field :language, id: :book_language %>
+    <%= form.select :language, ['English','Swahili'], id: :book_language %>
   </div>
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category, id: :book_category %>
+    <%= form.select :category, ['fiction', 'comedy', 'drama', 'horror', 'non-fiction', 'romance', 'satire', 'fantasy'], id: :book_category %>
   </div>
 
   <div class="field">
