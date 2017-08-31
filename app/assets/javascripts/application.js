@@ -14,13 +14,5 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
-//= require turbolinks
-//= require materialize-sprockets
 //= require toastr
-
-$(document).ready(function() {
-  $('select').material_select();
-  $(".dropdown-button").dropdown();
-  $(".button-collapse").sideNav();
-
-});
+//= require bootstrap-sprockets

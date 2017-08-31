@@ -14,6 +14,5 @@
  *= require_self
  *= require toastr
  */
-
-@import "materialize";
-@import "material_icons";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
