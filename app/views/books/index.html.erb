@@ -16,6 +16,9 @@
         <%= book.category %><br>
       </p>
     </div>
+    <div class="card-action">
+      <%= button_to "Read Book", book_path(book), class: "btn btn-info"%>
+    </div>
   </article>
 </div>
 <% end %>
