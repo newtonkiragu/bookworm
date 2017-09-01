@@ -1,37 +1,25 @@
 <div class="container">
   <%= @user.name %><br>
   <%= @user.email %>
-
 </div>
-<div class="conatiner">
   <h1>My Work</h1>
   <% @user.books.each do |book| %>
-  <div class="container">
-
-    <div class="col s12 m7" id="card">
-      <div class="card horizontal">
-        <div class="card-image">
-          <%= image_tag book.picture_url.to_s, class: 'image' %>
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p><%= book.title %></p>
-            <p>by <%= book.author %></p>
-            <p><%= book.description %></p>
-            <p><%= book.language %></p>
-            <p><%= book.category %></p>
-            <p><%= link_to 'Show', book %></p>
-            <p><%= link_to 'Edit', edit_book_path(book) %></p>
-            <p><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          </div>
-          <div class="card-action">
-            <%= link_to "Read Book", book_path(book) %>
-          </div>
-        </div>
-      </div>
+  <div class="col-xs-12 col-md-4">
+    <article class="card animated fadeInLeft">
+      <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+      <div class="card-block">
+        <h4 class="card-title"><%= book.title %></h4>
+        <h6 class="text-muted">by
+          <%= book.author %></h6>
+        <p class="card-text">
+          <%= book.description %><br>
+          <%= book.language %><br>
+          <%= book.category %><br>
+          <%= link_to 'Show', book %><br>
+          <%= link_to 'Edit', edit_book_path(book) %><br>
+          <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </p>
     </div>
-  </div>
-
-  <% end %>
-
+  </article>
 </div>
+<% end %>
