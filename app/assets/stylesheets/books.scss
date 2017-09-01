@@ -1,3 +1,39 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin BoxShadowHelper($level: 1) {
+   @if $level == 1{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  }
+  @if $level == 2 {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  }
+}
+
+a {
+  transition: 0.25s all;
+}
+
+.det{
+  border:1px solid red;
+  text-align: center;
+}
+.card {
+  @include BoxShadowHelper(1);
+  transition: 0.25s box-shadow;
+  width: 500px;
+  margin: 5px;
+
+  &:focus,
+  &:hover {
+    @include BoxShadowHelper(2);
+  }
+}
+#image-main {
+  height: 300px;
+  width: 500px;
+}
+.card-text{
+  padding: 15px;
+}

@@ -16,3 +16,10 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+   padding-top: 70px;
+   height: 100%;
+   margin: 0;
+   overflow-x: hidden;
+ }
