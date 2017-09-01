@@ -1,6 +1,20 @@
-<h1>Editing Book</h1>
+<div class="container">
+  <h1>Editing Book</h1>
+  <p>Dont forget to write the chapters like this <strong>##Chapter 1</strong></p>
 
-<%= render 'form', book: @book %>
+  <%= form_for @book do |form| %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content, id: :book_content, rows: '50', cols: '200'%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+
+  <%= link_to 'Show', @book %> |
+  <%= link_to 'Back', books_path %>
+</div>
