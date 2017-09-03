@@ -1,6 +1,8 @@
 <div class="container">
-  <%= @user.name %><br>
-  <%= @user.email %>
+  <div class="row" id="profile">
+    <%= @user.name %><br>
+
+  </div>
 </div>
 <h1>My Work</h1>
 <% @user.books.each do |book| %>
@@ -25,3 +27,5 @@
   </article>
 </div>
 <% end %>
+
+<h1>Reading List</h1>
