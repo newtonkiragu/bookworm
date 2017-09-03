@@ -2,7 +2,10 @@
   <div class="row" id="profile">
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
     <h1 class="username"><%= @user.name %></h1>
-    <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <%= link_to edit_user_registration_path, id: "edit_profile" do %>
+      <button type="button" class="btn btn-success">Edit Profile</button>
+    <% end %>
+
   </div>
 
     <h1>My Work</h1>
@@ -16,8 +19,9 @@
           <%= book.title %></h4>
         <h6 class="text-muted">by
           <%= book.author %></h6>
+          <h6><%= book.category %></h6>
         <% if book.status == true %>
-        <button class="btn btn-success">Completed</button>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
         <% end %>
       </div>
       <div class="truncate">
