@@ -5,11 +5,11 @@
   <%= form_for @book do |form| %>
     <div class="field">
       <%= form.label :content %>
-      <%= form.text_area :content, id: :book_content, rows: '50', cols: '200'%>
+      <%= form.text_area :content, id: :book_content, rows: '50', cols: '200', class: 'form-control'%>
     </div>
     <div class="field">
       <%= form.label :Completed? %>
-      <%= form.check_box :status, id: :book_status%>
+      <%= form.check_box :status, id: :book_status %>
     </div>
 
     <div class="actions">
