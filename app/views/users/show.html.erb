@@ -4,33 +4,31 @@
     <h1 class="username"><%= @user.name %></h1>
     <%= link_to 'Edit Profile', edit_user_registration_path %>
   </div>
-<div class="row">
-  <h1>My Work</h1>
-  <% @user.books.each do |book| %>
-  <div class="col-xs-12 col-md-4">
-    <article class="card animated fadeInLeft">
-      <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
-      <div class="card-block">
-        <h4 class="card-title"><%= book.title %></h4>
+
+    <h1>My Work</h1>
+    <% @user.books.each do |book| %>
+    <div class="col-md-3 card">
+      <div class="top">
+        <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+      </div>
+      <div class="details">
+        <h4 class="card-title">
+          <%= book.title %></h4>
         <h6 class="text-muted">by
           <%= book.author %></h6>
-          <p class="card-text">
-            <div class="truncate">
-              <%= book.description %><br>
-            </div>
-            <%= book.language %><br>
-            <%= book.category %><br>
-          </p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Read Book", book_path(book), class: "btn btn-info"%>
-        </div>
-      </article>
+        <% if book.status == true %>
+        <button class="btn btn-success">Completed</button>
+        <% end %>
+      </div>
+      <div class="truncate">
+        <%= book.description %><br>
+      </div>
+      <div class="bottom">
+        <%= link_to book_path(book), id: 'card-button' do %>
+        <button type="button" name="button" class="btn btn-info">Read Book</button>
+        <% end %>
+      </div>
     </div>
     <% end %>
-</div>
-<div class="">
-  <h1>Reading List</h1>
-</div>
 
 </div>

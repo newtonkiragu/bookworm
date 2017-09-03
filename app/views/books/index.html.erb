@@ -1,40 +1,35 @@
 <div class="container">
 
-<h1>Books</h1>
-<%= form_tag books_path, :method => 'get' do %>
+  <%= form_tag books_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-<% end %>
+  <% end %>
 
-<% @books.each do |book| %>
-<div class="col-xs-12 col-md-4" id="card">
-  <article class="card animated fadeInLeft">
-    <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
-    <div class="card-block">
+  <% @books.each do |book| %>
+  <div class="col-md-3 card">
+    <div class="top">
+      <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+    </div>
+    <div class="details">
       <h4 class="card-title">
         <%= book.title %></h4>
       <h6 class="text-muted">by
         <%= book.author %></h6>
-      <p class="card-text">
-        <div class="truncate">
-          <%= book.description %><br>
-        </div>
-        <%= book.language %><br>
-        <%= book.category %><br>
-        <% if book.status == true %>
-          <button class="btn btn-success">Completed</button>
-        <% end %>
-      </p>
-    </div>
-    <div class="card-action">
-      <%= link_to book_path(book), id: 'card-button' do %>
-        <button type="button" name="button" class="btn btn-info">Read Book</button>
+      <% if book.status == true %>
+      <button class="btn btn-success">Completed</button>
       <% end %>
     </div>
-  </article>
-</div>
-<% end %>
+    <div class="truncate">
+      <%= book.description %><br>
+    </div>
+    <div class="bottom">
+      <%= link_to book_path(book), id: 'card-button' do %>
+      <button type="button" name="button" class="btn btn-info">Read Book</button>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 
 </div>
