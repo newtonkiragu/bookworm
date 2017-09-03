@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h1><%= @book.title %></h1>
+  <%= link_to like_book_path(@book), method: :put do %>
+    Upvote
+    <%= @book.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_book_path(@book), method: :put do %>
+    Downvote
+    <%= @book.get_downvotes.size %>
+  <% end %>
+  <%= @book.score %>
+
+
   <p>
     <%= markdown(@book.content) %>
   </p>
@@ -9,4 +21,16 @@
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
   <%= link_to 'Back', books_path %>
+  <h3 class="white-text">Comments:</h3>
+		<div class="main">
+			<% if @book.comments.nil? %>
+			<p>No comments yet!</p>
+			<% else %>
+			<%= render 'comments/comment' %>
+			<% end %>
+		</div>
+		<br>
+		<div class="margin-bottom">
+		<%= link_to 'Add a comment', new_book_comment_path(@book), id: 'new_link', remote: true %>
+		</div>
 </div>
