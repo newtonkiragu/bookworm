@@ -38,12 +38,12 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :book_description %>
+    <%= form.text_area :description, id: :book_description, rows:'5', cols: '150' %>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :book_content, value: '##Chapter 1', rows: '50', cols: '200'%>
+    <%= form.text_area :content, id: :book_content, value: '##Chapter 1', rows: '50', cols: '150'%>
   </div>
 
   <div class="actions">
