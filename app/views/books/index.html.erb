@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
+<%= form_tag books_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <% @books.each do |book| %>
 <div class="col-xs-12 col-md-4">
