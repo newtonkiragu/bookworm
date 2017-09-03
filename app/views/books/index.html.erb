@@ -2,7 +2,7 @@
 
   <%= form_tag books_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search by Category' %>
     <%= submit_tag "Search", :name => nil %>
   </p>
   <% end %>
@@ -17,8 +17,9 @@
         <%= book.title %></h4>
       <h6 class="text-muted">by
         <%= book.author %></h6>
+        <h6><%= book.category %></h6>
       <% if book.status == true %>
-      <button class="btn btn-success">Completed</button>
+      <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
       <% end %>
     </div>
     <div class="truncate">
