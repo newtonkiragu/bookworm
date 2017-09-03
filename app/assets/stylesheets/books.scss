@@ -19,27 +19,43 @@ a {
   border:1px solid red;
   text-align: center;
 }
-#card {
-  padding: 25px;
-}
 .card {
   @include BoxShadowHelper(1);
   transition: 0.25s box-shadow;
   width: 400px;
-  margin: 5px;
+  margin: 30px;
+  padding: 20px;
+  background: #fff;
+	position: relative;
+	overflow: hidden;
+	z-index:1;
+	transition: all 0.5s ease;
+  color: #4A4A4A;
+	// border: 1px solid #E8E8E8;
 
   &:focus,
   &:hover {
     @include BoxShadowHelper(2);
   }
 }
+.card:hover{
+   box-shadow: 0px 21px 36px -14px rgba(220,220,220,1);
+}
 #image-main {
-  height: 300px;
-  width: 100%;
+  width:500px;
+  height:200px;
+  padding:0px;
+  position: relative;
+  overflow: hidden;
+	transition: all 1s ease;
+}
+.card:hover #image-main {
+  transform: scale(1.10);
+
 }
 .card-text{
-  margin: 5% auto;
   width: 80%;
+ text-align: center;
   // padding: 15px;
 }
 #card-button {
