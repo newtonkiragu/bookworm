@@ -38,3 +38,15 @@
     width: 60px;
   }
 }
+#profile {
+  height: 300px;
+  text-align: center;
+  background-color: beige;
+  .username {
+  }
+  .profile_img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+  }
+}
