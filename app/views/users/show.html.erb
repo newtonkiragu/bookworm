@@ -2,24 +2,21 @@
   <%= @user.name %><br>
   <%= @user.email %>
 </div>
-  <h1>My Work</h1>
-  <% @user.books.each do |book| %>
-  <div class="col-xs-12 col-md-4">
-    <article class="card animated fadeInLeft">
-      <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
-      <div class="card-block">
-        <h4 class="card-title"><%= book.title %></h4>
-        <h6 class="text-muted">by
-          <%= book.author %></h6>
-        <p class="card-text">
-          <div class="truncate">
-            <%= book.description %><br>
-          </div>
-          <%= book.language %><br>
-          <%= book.category %><br>
-          <%= link_to 'Show', book %><br>
-          <%= link_to 'Edit', edit_book_path(book) %><br>
-          <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<h1>My Work</h1>
+<% @user.books.each do |book| %>
+<div class="col-xs-12 col-md-4">
+  <article class="card animated fadeInLeft">
+    <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+    <div class="card-block">
+      <h4 class="card-title"><%= book.title %></h4>
+      <h6 class="text-muted">by
+        <%= book.author %></h6>
+      <p class="card-text">
+        <div class="truncate">
+          <%= book.description %><br>
+        </div>
+        <%= book.language %><br>
+        <%= book.category %><br>
       </p>
     </div>
     <div class="card-action">
