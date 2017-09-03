@@ -16,6 +16,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Rubik');
 
  html{overflow-y:scroll}
 
@@ -38,10 +39,16 @@
     width: 60px;
   }
 }
+#main-nav {
+background-color: white;
+}
 #profile {
-  height: 300px;
+  padding: 100px;
   text-align: center;
-  background-color: beige;
+  background-image: url(http://www.de-vesting.be/files/uploads/images/o-OPEN-BOOK-facebook.jpg);
+  background-size: cover;
+  font-family: 'Rubik',sans-serif;
+
   .username {
   }
   .profile_img {
