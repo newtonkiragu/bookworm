@@ -12,6 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @comments = Comment.all
   end
 
   # GET /books/new
@@ -64,6 +65,18 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @book = Book.find(params[:id])
+    @book.upvote_by current_user
+    redirect_to book_path
+  end
+
+  def downvote
+   @book = Book.find(params[:id])
+   @book.downvote_by current_user
+   redirect_to book_path
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
