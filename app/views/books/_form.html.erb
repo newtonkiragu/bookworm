@@ -13,32 +13,32 @@
 
   <div class="field">
     <%= form.label :picture %>
-    <%= form.file_field :picture, id: :book_picture %>
+    <%= form.file_field :picture, id: :book_picture, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
+    <%= form.text_field :title, id: :book_title, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :author %>
-    <%= form.text_field :author, id: :book_author %>
+    <%= form.text_field :author, id: :book_author, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :language %>
-    <%= form.select :language, ['English','Swahili'], id: :book_language %>
+    <%= form.select :language, ['English','Swahili'], id: :book_language, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, ['fiction', 'comedy', 'drama', 'horror', 'true-story', 'romance', 'satire', 'fantasy'], id: :book_category %>
+    <%= form.select :category, ['fiction', 'comedy', 'drama', 'horror', 'true-story', 'romance', 'satire', 'fantasy'], id: :book_category, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :description %><br>
-    <%= form.text_area :description, id: :book_description, rows:'5', cols: '150' %>
+    <%= form.text_area :description, id: :book_description, rows:'5', cols: '150', required: true %>
   </div>
 
   <div class="field">
