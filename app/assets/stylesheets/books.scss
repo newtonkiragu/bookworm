@@ -19,10 +19,13 @@ a {
   border:1px solid red;
   text-align: center;
 }
+#card {
+  padding: 25px;
+}
 .card {
   @include BoxShadowHelper(1);
   transition: 0.25s box-shadow;
-  width: 500px;
+  width: 400px;
   margin: 5px;
 
   &:focus,
@@ -32,8 +35,16 @@ a {
 }
 #image-main {
   height: 300px;
-  width: 500px;
+  width: 100%;
 }
 .card-text{
-  padding: 15px;
+  margin: 5% auto;
+  width: 80%;
+  // padding: 15px;
 }
+#card-button {
+    width:200px;
+    height:55px;
+    margin:25px 75px;
+    text-align: center;
+  }
