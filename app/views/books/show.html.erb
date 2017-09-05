@@ -18,7 +18,7 @@
   <p>
     <%= markdown(@book.content) %>
   </p>
-  <% if current_user %>
+  <% if current_user.id == @book.user_id %>
   <%= link_to 'Continue Writing', edit_book_path(@book) %> |
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
