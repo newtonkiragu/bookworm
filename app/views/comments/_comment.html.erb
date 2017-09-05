@@ -1,0 +1,11 @@
+<p class="white-text">
+<% @book.comments.each do |comment| %>
+<span class="glyphicon glyphicon-user"></span>
+<%= comment.comment %>
+<%= comment.user.name%>
+<%if comment.user == current_user%><%= link_to '(remove)', [comment.book, comment] , method: :delete, data: {confirm: 'Are you sure'}, remote: true, class: 'del_comment' %>
+<%else%>
+<h1>No comments yet!</h1>
+<%end%>
+<% end %>
+</p>

@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require toastr
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Rubik');
+
+ html{overflow-y:scroll}
+
+
+ // body{animation: fadeIn 1s}
+ // @keyframes fadeIn{
+ // 	0%{opacity:0;background:#000}
+ // 	90%{opacity:0}
+ // 	100%{opacity:1;background:#fff}
+ // }
+ body {
+   padding-top: 70px;
+   height: 100%;
+   margin: 0;
+   overflow-x: hidden;
+ }
+.navbar-brand {
+  img{
+    height: 35px;
+    width: 60px;
+  }
+}
+#main-nav {
+background-color: white;
+}
+#profile {
+  padding: 100px;
+  text-align: center;
+  background-image: url(http://www.de-vesting.be/files/uploads/images/o-OPEN-BOOK-facebook.jpg);
+  background-size: cover;
+  font-family: 'Rubik',sans-serif;
+
+  .username {
+  }
+  .profile_img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+  }
+}

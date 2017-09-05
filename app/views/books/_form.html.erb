@@ -1,0 +1,52 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :book_picture, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :book_title, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :book_author, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.select :language, ['English','Swahili'], id: :book, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, ['fiction', 'comedy', 'drama', 'horror', 'true-story', 'romance', 'satire', 'fantasy'], id: :book_category, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description, id: :book_description, rows:'5', cols: '150', required: true, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %><br>
+    <%= form.text_area :content, id: :book_content, value: '##Chapter 1', rows: '50', cols: '150', class: 'form-control'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

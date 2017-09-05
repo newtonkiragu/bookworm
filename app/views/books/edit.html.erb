@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Editing Book</h1>
+  <p>Dont forget to write the chapters like this <strong>##Chapter 1</strong></p>
+
+  <%= form_for @book do |form| %>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content, id: :book_content, rows: '50', cols: '200', class: 'form-control'%>
+    </div>
+    <div class="field">
+      <%= form.label :Completed? %>
+      <%= form.check_box :status, id: :book_status %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+
+  <%= link_to 'Show', @book %> |
+  <%= link_to 'Back', books_path %>
+</div>

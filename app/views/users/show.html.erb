@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row" id="profile">
+    <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
+    <h1 class="username"><%= @user.name %></h1>
+    <%= link_to edit_user_registration_path, id: "edit_profile" do %>
+      <button type="button" class="btn btn-success">Edit Profile</button>
+    <% end %>
+
+  </div>
+
+    <h1>My Work</h1>
+    <% @user.books.each do |book| %>
+    <div class="col-md-3 card">
+      <div class="top">
+        <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+      </div>
+      <div class="details">
+        <h4 class="card-title">
+          <%= book.title %></h4>
+        <h6 class="text-muted">by
+          <%= book.author %></h6>
+          <h6><%= book.category %></h6>
+        <% if book.status == true %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
+        <% end %>
+      </div>
+      <div class="truncate">
+        <%= book.description %><br>
+      </div>
+      <div class="bottom">
+        <%= link_to book_path(book), id: 'card-button' do %>
+        <button type="button" name="button" class="btn btn-info">Read Book</button>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+</div>
