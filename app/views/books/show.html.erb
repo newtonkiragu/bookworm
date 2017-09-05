@@ -23,10 +23,10 @@
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
   <%= link_to 'Back', books_path %>
-  <h3 class="white-text">Comments:</h3>
+  <h3 class="white-text">Reviews:</h3>
 		<div class="main">
 			<% if @book.comments.nil? %>
-			<p>No comments yet!</p>
+			<p>No reviews yet!</p>
 			<% else %>
 			<%= render 'comments/comment' %>
 			<% end %>
@@ -34,7 +34,7 @@
 		<br>
 		<div class="margin-bottom">
       <% if current_user %>
-		    <%= link_to 'Add a comment', new_book_comment_path(@book), id: 'new_link', remote: true %>
+		    <%= link_to 'Add a review', new_book_comment_path(@book), id: 'new_link', remote: true %>
       <% else %>
         <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %> to add a comment.</p>
       <% end %>
