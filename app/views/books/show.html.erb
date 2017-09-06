@@ -31,12 +31,4 @@
 			<%= render 'comments/comment' %>
 			<% end %>
 		</div>
-		<br>
-		<div class="margin-bottom">
-      <% if current_user %>
-		    <%= link_to 'Add a comment', new_book_comment_path(@book), id: 'new_link', remote: true %>
-      <% else %>
-        <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %> to add a comment.</p>
-      <% end %>
-		</div>
-</div>
+<%= render 'disqus' %>

@@ -17,6 +17,12 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require toastr
+
+
+
+
+
+
 document.addEventListener("turbolinks:load", function() {
  my_func();
 })
