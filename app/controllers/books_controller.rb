@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :add_to_list]
 
+
+  def add_to_list
+    new_user = current_user.id.to_s
+    users = @book.reading_list.concat(new_user)
+    @book.update(reading_list: users)
+  end
   # GET /books
   # GET /books.json
   def index
@@ -86,6 +92,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :content, :user_id, :status)
+      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :content, :user_id, :status, :reading_list)
     end
 end
