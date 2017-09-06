@@ -15,7 +15,11 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
+<<<<<<< HEAD
   # config.mailer = 'Devise::Mailer'
+=======
+  config.mailer = 'Devise::Mailer'
+>>>>>>> 9e1cfe4d748906b6aaa06eeb2787fa57434393d6
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -136,7 +140,11 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
+<<<<<<< HEAD
   config.reconfirmable = true
+=======
+  config.reconfirmable = false
+>>>>>>> 9e1cfe4d748906b6aaa06eeb2787fa57434393d6
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
