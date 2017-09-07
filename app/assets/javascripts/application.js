@@ -17,15 +17,8 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require toastr
-<<<<<<< HEAD
+//= require social-share-button
 
-
-
-
-
-
-=======
->>>>>>> 9e1cfe4d748906b6aaa06eeb2787fa57434393d6
 document.addEventListener("turbolinks:load", function() {
  my_func();
 })

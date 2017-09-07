@@ -36,6 +36,7 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate'
+gem 'social-share-button'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
