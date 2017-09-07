@@ -1,11 +1,24 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :add_to_list]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 
   def add_to_list
+    @book = Book.find(params[:id])
     new_user = current_user.id.to_s
-    users = @book.reading_list.concat(new_user)
-    @book.update(reading_list: users)
+    if @book.reading_list == nil
+      @book.reading_list = new_user
+    else
+      @book.reading_list.concat("," + new_user)
+    end
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.json { render :show, status: :ok, location: @book }
+      else
+        format.html { render :edit }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
   end
   # GET /books
   # GET /books.json
