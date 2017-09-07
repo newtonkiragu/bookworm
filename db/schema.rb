@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170905094142) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.boolean "status"
+    t.string "reading_list"
   end
 
   create_table "comments", force: :cascade do |t|
