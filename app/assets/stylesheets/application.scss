@@ -19,6 +19,7 @@
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Rubik');
 
+
  html{overflow-y:scroll}
 
 
@@ -57,4 +58,8 @@ background-color: white;
     height: 150px;
     width: 150px;
   }
+}
+
+h2 {
+  text-align: center;
 }

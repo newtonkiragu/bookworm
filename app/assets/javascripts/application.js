@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require social-share-button
+
 document.addEventListener("turbolinks:load", function() {
  my_func();
 })
