@@ -38,7 +38,7 @@
                 <%end%>
                 <li>
                   <% if user_signed_in? %>
-                    <%= link_to current_user.name, current_user %>  
+                    <%= link_to current_user.name, current_user %>
                 <% end %>
               </li>
             </ul>
@@ -47,7 +47,6 @@
         </div>
         <!-- container-fluid -->
       </nav>
-
       <%= yield %>
       <% unless flash.empty? %>
       <script type="text/javascript">

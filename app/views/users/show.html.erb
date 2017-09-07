@@ -7,7 +7,10 @@
     <% end %>
 
   </div>
-
+    <h1>My Reading List</h1>
+    <% @reading_list.each do |i| %>
+      <%= i.title %>
+    <% end %>
     <h1>My Work</h1>
     <% @user.books.each do |book| %>
     <div class="col-md-3 card">
