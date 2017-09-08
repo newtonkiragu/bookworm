@@ -9,7 +9,8 @@
   </div>
     <h1>My Reading List</h1>
     <% @reading_list.each do |i| %>
-      <%= i.title %>
+      <li><%= link_to i.title, book_path(i) %></li>
+      <li><%= link_to "Create BookClub", new_club_path %></li>
     <% end %>
     <h1>My Work</h1>
     <% @user.books.each do |book| %>
