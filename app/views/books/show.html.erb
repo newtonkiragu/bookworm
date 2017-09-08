@@ -16,6 +16,7 @@
   <% end %>
 
   <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %>
+  <%= link_to 'Remove from Reading List', book_remove_from_list_path(@book) %>
   <p>
     <%= markdown(@book.content) %>
   </p>

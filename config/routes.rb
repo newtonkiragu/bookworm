@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments
     get 'add_to_list/:id', :to => 'books#add_to_list', :as => :add_to_list
+    get 'remove_from_list/:id', :to => 'books#remove_from_list', :as => :remove_from_list
     member do
      put "like", to: "books#upvote"
      put "dislike", to: "books#downvote"

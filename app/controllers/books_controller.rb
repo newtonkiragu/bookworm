@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :remove_from_list]
 
 
   def add_to_list
@@ -19,6 +19,18 @@ class BooksController < ApplicationController
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def remove_from_list
+    users = @book.reading_list.split(",")
+    if users.include? current_user.id.to_s
+      @book.reading_list.split(",").delete(current_user.id.to_s)
+      @book.save
+    end
+    respond_to do |format|
+        format.html { redirect_to @book, notice: 'Book was successfully removed from reading list.' }
+        format.json { render :show, status: :ok, location: @book }
+      end
   end
   # GET /books
   # GET /books.json
