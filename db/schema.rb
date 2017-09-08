@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170906095626) do
-=======
-ActiveRecord::Schema.define(version: 20170905094142) do
->>>>>>> b33481f359144a5c734a4760679d8b0547a5e843
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,19 +34,6 @@ ActiveRecord::Schema.define(version: 20170905094142) do
     t.text "comment"
     t.integer "user_id"
     t.integer "book_id"
-  end
-
-  create_table "comments_tables", force: :cascade do |t|
-    t.string "comment"
-    t.integer "user_id"
-    t.integer "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reads", force: :cascade do |t|
-    t.boolean "read"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
