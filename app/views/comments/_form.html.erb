@@ -11,11 +11,11 @@
     </div>
   <% end %>
   <div class="field comment-form">
-    <%= form.text_area :comment, id: :comment_comment, class:"form-control"%>
+    <%= form.text_area :comment, id: :comment_comment, class:"form-control", required: true%>
   </div>
 <br>
   <div class="actions">
-    
+
     <%= form.submit "Create Review", class:"btn btn-success left" %>
   </div>
 <% end %>
