@@ -37,11 +37,9 @@
   <% if @book.comments.nil? %>
   <p>No reviews yet!</p>
 <% else %>
-  <%= render 'comments/comment' %>
+  <%= render @book.comments %>
   <% end %>
 </div>
-
-<%= render 'disqus' %>
 
 <br>
 <div class="margin-bottom">
