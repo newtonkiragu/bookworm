@@ -15,6 +15,13 @@ ActiveRecord::Schema.define(version: 20170912063110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "book_attachments", force: :cascade do |t|
+    t.integer "book_id"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "picture"
     t.string "title"
@@ -41,6 +48,19 @@ ActiveRecord::Schema.define(version: 20170912063110) do
     t.text "comment"
     t.integer "user_id"
     t.integer "book_id"
+  end
+
+  create_table "comments_tables", force: :cascade do |t|
+    t.string "comment"
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reads", force: :cascade do |t|
+    t.boolean "read"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
