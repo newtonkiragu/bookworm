@@ -18,11 +18,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Rubik');
+ @import "font-awesome";
 
 
- 
-
-
+ html{overflow-y:scroll}
 
  // body{animation: fadeIn 1s}
  // @keyframes fadeIn{

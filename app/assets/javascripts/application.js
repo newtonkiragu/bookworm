@@ -59,8 +59,18 @@ $(document).ready(function() {
 });
 
 }
+
 $(document).ready(function() {
     setTimeout(function() {
         $("#main").removeClass("is-loading");
     }, 100)
 });
+
+
+//upvote and downvote
+$('.like, .dislike').on('click', function() {
+    event.preventDefault();
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+});
+
