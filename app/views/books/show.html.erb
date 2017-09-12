@@ -7,7 +7,7 @@
   <% end %>
 
   <%= link_to dislike_book_path(@book), method: :put do %>
-    Downvote
+    <button class="btn btn-success" name="button">Downvote</button>
     <%= @book.get_downvotes.size %>
   <% end %>
   <%= @book.score %>
