@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= @book.title %></h1>
+  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %><br>
   <% if current_user %>
   <%= link_to like_book_path(@book), method: :put do %>
   <div class="like grow">
@@ -20,7 +21,6 @@
     to upvote or downvote.</p>
   <% end %>
 
-  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %>
 
   <p>
     <%= markdown(@book.content) %>
