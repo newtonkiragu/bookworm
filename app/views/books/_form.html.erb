@@ -17,6 +17,14 @@
   </div>
 
   <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :attachment, id: :book_attachment,
+     
+    required: true, class: 'form-control' %>
+  </div>
+
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :book_title, required: true, class: 'form-control' %>
   </div>
