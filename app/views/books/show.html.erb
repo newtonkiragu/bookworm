@@ -37,7 +37,7 @@
 			<% if @book.comments.nil? %>
 			<p>No reviews yet!</p>
 			<% else %>
-			<%= render 'comments/comment' %>
+			<%= render @book.comments %>
 			<% end %>
 		</div>
 
@@ -60,6 +60,8 @@
   <%= render @book.comments %>
   <% end %>
 </div>
+
+<td><%= link_to "Download Book", @book.attachment_url %></td>
 
 <br>
 <div class="margin-bottom">
