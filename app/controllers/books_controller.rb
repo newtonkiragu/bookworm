@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  
+
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 
@@ -46,6 +46,12 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @comments = Comment.all
+    respond_to do |format|
+        if current_user == nil
+          format.html { redirect_to new_user_registration_path }
+        end
+      end
+
   end
 
   # GET /books/new
