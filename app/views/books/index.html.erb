@@ -28,11 +28,17 @@
     <div class="truncate">
       <%= book.description %><br>
     </div>
-    <div class="bottom">
+
+     <%if user_signed_in?%>
+      <div class="bottom">
       <%= link_to book_path(book), id: 'card-button' do %>
       <button type="button" name="button" class="btn btn-info">Read Book</button>
       <% end %>
     </div>
+    <%else%>
+
+  <h5> Please Sign In to leave a Testimonial</h5>
+<%end%>
 
   </div>
   <% end %>

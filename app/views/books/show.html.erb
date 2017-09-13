@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= @book.title %></h1>
+  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %><br>
   <% if current_user %>
   <%= link_to like_book_path(@book), method: :put do %>
   <div class="like grow">
@@ -20,26 +21,10 @@
     to upvote or downvote.</p>
   <% end %>
 
-  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %>
 
   <p>
     <%= markdown(@book.content) %>
   </p>
-
-
-  <% if current_user.id == @book.user_id %>
-  <%= link_to 'Continue Writing', edit_book_path(@book) %> |
-
- <% end %>
-  <%= link_to 'Back', books_path %>
-  <h3 class="white-text">Reviews:</h3>
-		<div class="main">
-			<% if @book.comments.nil? %>
-			<p>No reviews yet!</p>
-			<% else %>
-			<%= render @book.comments %>
-			<% end %>
-		</div>
 
   <p>
     <% @tweet = @book.title + ": " + @book.description %>
@@ -50,8 +35,9 @@
   |
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', books_path %><br>
 
+<td><%= link_to "Download Book", @book.attachment_url %></td>
 <h3 class="white-text">Reviews:</h3>
 <div class="main">
   <% if @book.comments.nil? %>
@@ -61,7 +47,6 @@
   <% end %>
 </div>
 
-<td><%= link_to "Download Book", @book.attachment_url %></td>
 
 <br>
 <div class="margin-bottom">
@@ -72,5 +57,3 @@
     to add a comment.</p>
   <% end %>
 </div>
-
-

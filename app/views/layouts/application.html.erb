@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <% unless landing == "landing" %>
     <nav id="main-nav" class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix">
       <div class="container">
         <div class="navbar-header">
@@ -16,7 +17,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="glyphicon glyphicon-menu-hamburger">
               <span></button>
-              <a class="navbar-brand page-scroll" href="/"><img src="http://img.freepik.com/free-photo/bookworm_21266435.jpg?size=338&ext=jpg" alt=""></a>
+              <a class="navbar-brand page-scroll" href="/books"><img src="http://img.freepik.com/free-photo/bookworm_21266435.jpg?size=338&ext=jpg" alt=""></a>
             </div>
             <!-- navbar-header -->
             <div id="menu-nav" class="navbar-collapse collapse">
@@ -47,6 +48,7 @@
         </div>
         <!-- container-fluid -->
       </nav>
+      <% end %>
       <%= yield %>
       <% unless flash.empty? %>
       <script type="text/javascript">
