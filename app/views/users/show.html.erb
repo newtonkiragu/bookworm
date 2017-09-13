@@ -1,18 +1,24 @@
 <div class="container">
   <div class="row" id="profile">
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
-    <h1 class="username"><%= @user.name %></h1>
+    <h3 class="username"><%= @user.name %></h3>
+    <br>
+
     <%= link_to edit_user_registration_path, id: "edit_profile" do %>
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
+
+    <button type="button" class="btn btn-success"><%= link_to "Create BookClub", new_club_path %></button>
 
   </div>
     <h1>My Reading List</h1>
     <% @reading_list.each do |i| %>
       <li><%= link_to i.title, book_path(i) %></li>
-      <li><%= link_to "Create BookClub", new_club_path %></li>
+      
     <% end %>
+    <br>
     <h1>My Work</h1>
+    <hr />
     <% @user.books.each do |book| %>
     <div class="col-md-3 card">
       <div class="top">
