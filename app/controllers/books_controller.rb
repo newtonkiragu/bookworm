@@ -46,12 +46,9 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @comments = Comment.all
-    respond_to do |format|
-        if current_user == nil
-          format.html { redirect_to new_user_registration_path }
-        end
-      end
-
+    if current_user == nil
+      redirect_to new_user_registration_path
+    end
   end
 
   # GET /books/new
