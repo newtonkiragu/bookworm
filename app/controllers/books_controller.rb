@@ -21,6 +21,19 @@ class BooksController < ApplicationController
       end
     end
   end
+
+  def remove_from_list
+    user_ids = @book.reading_list.split(",")
+    if user_ids.include? current_user.id.to_s
+      @book.reading_list.split(",").delete(current_user.id.to_s)
+    end
+    respond_to do |format|
+        if @book.save
+          format.html { redirect_to @book, notice: 'Book was successfully removed from reading list.' }
+          format.json { render :show, status: :ok, location: @book }
+        end
+      end
+  end
   # GET /books
   # GET /books.json
   def index

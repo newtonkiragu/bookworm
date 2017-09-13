@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <% unless landing == "landing" %>
+    <%# unless landing == "landing" %>
     <nav id="main-nav" class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix">
       <div class="container">
         <div class="navbar-header">
@@ -48,7 +48,7 @@
         </div>
         <!-- container-fluid -->
       </nav>
-      <% end %>
+      <%# end %>
       <%= yield %>
       <% unless flash.empty? %>
       <script type="text/javascript">

@@ -10,4 +10,5 @@ module ReadingList
     end
     @reading_list
   end
+
 end
