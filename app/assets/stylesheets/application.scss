@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  *= require toastr
+ *= require social-share-button
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Rubik');
-
-html{overflow-y:scroll}
+ @import "font-awesome";
 
 
  // body{animation: fadeIn 1s}
@@ -58,6 +58,35 @@ background-color: white;
     width: 150px;
   }
 }
+
 h2 {
   text-align: center;
+  margin-top: 70px;
+  padding-right: 100px;
+  text-shadow: 0 1px 2px rgba(#000,.5);
+  font-weight: 900;
+  color: green;
+}
+
+.login {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -180px 0 0 -150px;
+  width: 300px;
+  height: 500px;
+  color: rgba(#fff, .85);
+  display: inline-block;
+  font-size: 16px;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 15px;
+  border: 1px solid #000;
+  background-color: rgba(#000, .1);
+
+}
+.actions {
+  font-weight: 900;
+  color: green;
 }

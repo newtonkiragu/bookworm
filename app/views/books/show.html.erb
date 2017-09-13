@@ -1,47 +1,69 @@
 <div class="container">
   <h1><%= @book.title %></h1>
+  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %><br>
   <% if current_user %>
   <%= link_to like_book_path(@book), method: :put do %>
-    Upvote
-    <%= @book.get_upvotes.size %>
+  <div class="like grow">
+    <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+  </div>
+  <%= @book.get_upvotes.size %>
   <% end %>
 
   <%= link_to dislike_book_path(@book), method: :put do %>
+<<<<<<< HEAD
     <button class="btn btn-success" name="button">Downvote</button>
     <%= @book.get_downvotes.size %>
+=======
+  <div class="dislike grow">
+    <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+  </div>
+  <%= @book.get_downvotes.size %>
+>>>>>>> fa5e8ffa58f91b069ed2cf2ecfc0a38b3ffbdb82
   <% end %>
   <%= @book.score %>
-  <% else %>
-    <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %> to upvote or downvote.</p>
+<% else %>
+  <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %>
+    to upvote or downvote.</p>
   <% end %>
 
+<<<<<<< HEAD
   <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %>
   <%= link_to 'Remove from Reading List', book_remove_from_list_path(@book) %>
+=======
+
+>>>>>>> fa5e8ffa58f91b069ed2cf2ecfc0a38b3ffbdb82
   <p>
     <%= markdown(@book.content) %>
   </p>
-  <% if current_user %>
-  <%= link_to 'Continue Writing', edit_book_path %> |
+
+  <p>
+    <% @tweet = @book.title + ": " + @book.description %>
+    <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
+  </p>
+  <% if current_user.id == @book.user_id %>
+  <%= link_to 'Continue Writing', edit_book_path(@book) %>
+  |
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>
+<%= link_to 'Back', books_path %><br>
+
+<td><%= link_to "Download Book", @book.attachment_url %></td>
+<h3 class="white-text">Reviews:</h3>
+<div class="main">
+  <% if @book.comments.nil? %>
+  <p>No reviews yet!</p>
+<% else %>
+  <%= render @book.comments %>
   <% end %>
-  <%= link_to 'Back', books_path %>
-  <h3 class="white-text">Comments:</h3>
-		<div class="main">
-			<% if @book.comments.nil? %>
-			<p>No comments yet!</p>
-			<% else %>
-			<%= render 'comments/comment' %>
-			<% end %>
-		</div>
+</div>
 
-<%= render 'disqus' %>
 
-		<br>
-		<div class="margin-bottom">
-      <% if current_user %>
-		    <%= link_to 'Add a comment', new_book_comment_path(@book), id: 'new_link', remote: true %>
-      <% else %>
-        <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %> to add a comment.</p>
-      <% end %>
-		</div>
+<br>
+<div class="margin-bottom">
+  <% if current_user %>
+  <%= link_to 'Add a review', new_book_comment_path(@book), id: 'new_link', remote: true %>
+<% else %>
+  <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %>
+    to add a comment.</p>
+  <% end %>
 </div>

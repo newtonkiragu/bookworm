@@ -1,0 +1,17 @@
+<div id="main">
+  <head>
+      <title>Bookworm</title>
+      <%= csrf_meta_tags %>
+
+      <%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+
+  <div id="landing">
+  	<h1>
+  		BookWorm
+  	</h1>
+    <p><%= link_to "Get Started", books_path %></p>
+  </div>
+</div>
