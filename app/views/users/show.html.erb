@@ -12,7 +12,9 @@
     <% @reading_list.each do |i| %>
     <li><%= link_to i.title, book_path(i) %>
       <%= link_to book_remove_from_list_path(i) do %>
-        <i class="fa fa-trash" aria-hidden="true"></i><br>
+        <i class="fa fa-trash" aria-hidden="true">
+          <span class="tooltiptext">Remove from Reading List</span>
+        </i><br>
       <% end %>
       <%= link_to "Create BookClub", new_club_path %></li>
       <% end %>
