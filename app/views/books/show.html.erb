@@ -52,9 +52,10 @@
     to upvote or downvote.</p>
   <% end %>
 
-  <p>
-    <%= markdown(@book.content) %>
-  </p>
+  <% @chapters.each do |chapter| %>
+    <%= chapter.title %>
+    <%= chapter.content %>
+  <% end %>
 
   <p>
     <% @tweet = @book.title + ": " + @book.description %>
