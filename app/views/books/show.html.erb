@@ -39,9 +39,11 @@
       <i class="fa fa-eye icon" aria-hidden="true"> <%= @book.impressionist_count(:filter=>:session_hash) %></i>
       <i class="fa fa-star icon" aria-hidden="true"> <%= @book.score %></i><br><br>
       <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
-      <h5>by <%= link_to @book.author, current_user %></h5>
+      <h5>by <%= link_to @book.author, author_path(@book.user_id) %></h5>
     </div>
   </div>
+
+  <hr>
 
   <div class="row">
     <% @chapters.each do |chapter| %>
