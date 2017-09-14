@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
 
+
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :remove_from_list]
 
 
   def add_to_list
