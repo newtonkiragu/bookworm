@@ -5,13 +5,54 @@
 
       <%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+    </head>  
 
-
+<div class="component">
   <div id="landing">
-  	<h1>
-  		BookWorm
-  	</h1>
-    <p><%= link_to "Get Started", books_path %></p>
+    <h1>
+      BookWorm
+    </h1>
+
   </div>
-</div>
+        <ul class="align">
+
+          <li>
+            <figure class='book'>
+              <ul class='hardcover_front'>
+                <li>
+                  <div class="coverDesign blue">
+                    <h1>CSS</h1>
+                    <p>BOOK</p>
+                  </div>
+                </li>
+                <li></li>
+              </ul>
+
+              <!-- Pages -->
+              <ul class='page'>
+              
+                <li></li>
+                <li>
+                  <a class="btn" <%= link_to "Get Started", books_path %></a>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+
+              <!-- Back -->
+
+              <ul class='hardcover_back'>
+                <li></li>
+                <li></li>
+              </ul>
+              <ul class='book_spine'>
+                <li></li>
+                <li></li>
+              </ul>
+              
+            </figure>
+          </li>
+        </ul>
+      </div>
+  </div>
