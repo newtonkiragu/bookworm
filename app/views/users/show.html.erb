@@ -1,18 +1,24 @@
 <div class="container">
   <div class="row" id="profile">
-    <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
-    <h1 class="username"><%= @user.name %></h1>
+    <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
+    <h1 class="username"><%= @user.name %></h1><br>
     <%= link_to edit_user_registration_path, id: "edit_profile" do %>
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
 
   </div>
+  <div class="reading_list">
     <h1>My Reading List</h1>
     <% @reading_list.each do |i| %>
-      <li><%= link_to i.title, book_path(i) %></li>
-      <li><%= link_to "Create BookClub", new_club_path %></li>
-    <% end %>
-    <h1>My Work</h1>
+    <li><%= link_to i.title, book_path(i) %>
+      <%= link_to book_remove_from_list_path(i) do %>
+        <i class="fa fa-trash" aria-hidden="true"></i><br>
+      <% end %>
+      <%= link_to "Create BookClub", new_club_path %></li>
+      <% end %>
+  </div>
+  <div class="my_work">
+    <h1>My Work</h1><br>
     <% @user.books.each do |book| %>
     <div class="col-md-3 card">
       <div class="top">
@@ -21,22 +27,23 @@
       <div class="details">
         <h4 class="card-title">
           <%= book.title %></h4>
-        <h6 class="text-muted">by
-          <%= book.author %></h6>
-          <h6><%= book.category %></h6>
-        <% if book.status == true %>
-        <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
+          <h6 class="text-muted">by
+            <%= book.author %></h6>
+            <h6><%= book.category %></h6>
+            <% if book.status == true %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
+            <% end %>
+          </div>
+          <div class="truncate">
+            <%= book.description %><br>
+          </div>
+          <div class="bottom">
+            <%= link_to book_path(book), id: 'card-button' do %>
+            <button type="button" name="button" class="btn btn-info">Read Book</button>
+            <% end %>
+          </div>
+        </div>
         <% end %>
-      </div>
-      <div class="truncate">
-        <%= book.description %><br>
-      </div>
-      <div class="bottom">
-        <%= link_to book_path(book), id: 'card-button' do %>
-        <button type="button" name="button" class="btn btn-info">Read Book</button>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
+  </div>
 
 </div>
