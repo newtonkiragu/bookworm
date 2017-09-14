@@ -60,8 +60,13 @@
     <% @tweet = @book.title + ": " + @book.description %>
     <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
   </p>
-  <% if current_user == @book.user %>
-  <%= link_to 'Continue Writing', edit_book_path(@book) %>
+  <p>
+    <% @chapters.each do |chapter| %>
+      <%= chapter.content %>
+    <% end %>
+  </p>
+  <% if current_user.id == @book.user_id %>
+  <%= link_to 'Continue Writing', new_book_chapter_path(@book) %>
   |
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
