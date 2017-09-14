@@ -6,12 +6,13 @@
       </div>
       <div class="col-md-2">
         <h5><%= @book.title %></h5>
-        <p>by <%= @book.author %></p>
+        <p>by
+          <%= @book.author %></p>
       </div>
     </div>
     <div class="col-md-2 col-xs-1">
       <%= link_to book_add_to_list_path(@book) do %>
-        <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
       <% end %>
     </div>
     <div class="col-md-2 col-xs-2">
@@ -31,30 +32,26 @@
     </div>
   </div>
   <i class="fa fa-eye" aria-hidden="true"><%= @book.impressionist_count(:filter=>:session_hash) %>
-</i>
+  </i>
 
   <h1><%= @book.title %></h1>
   <% if current_user %>
 
   <%= link_to dislike_book_path(@book), method: :put do %>
-<<<<<<< HEAD
-    <button class="btn btn-success" name="button">Downvote</button>
-    <%= @book.get_downvotes.size %>
-=======
+  <button class="btn btn-success" name="button">Downvote</button>
+  <%= @book.get_downvotes.size %>
+
   <div class="dislike grow">
     <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
   </div>
   <%= @book.get_downvotes.size %>
   <% end %>
->>>>>>> 1ffabb7685283ec015136b02255a7e4ee93cfc25
   <%= @book.score %>
 <% else %>
   <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %>
     to upvote or downvote.</p>
   <% end %>
 
-
->>>>>>> 1ffabb7685283ec015136b02255a7e4ee93cfc25
   <p>
     <%= markdown(@book.content) %>
   </p>
@@ -79,7 +76,6 @@
   <%= render @book.comments %>
   <% end %>
 </div>
-
 
 <br>
 <div class="margin-bottom">
