@@ -3,7 +3,7 @@ class Book < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
   belongs_to :user
   has_many :comments
-  is_impressionable
+  is_impressionable :counter_cache => true, :column_name => :impressions_count, :unique => true
   acts_as_votable
   has_one :service
   def score
