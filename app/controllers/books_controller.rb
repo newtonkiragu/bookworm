@@ -44,7 +44,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @user = User.find(@book.user_id)
-    @chapters = @book.chapters
+    @chapters = @book.chapters.order("title").page(params[:page]).per_page(1)
     @book = Book.find(params[:id])
     impressionist(@book, "message...") # 2nd argument is optional
     @comments = Comment.all
