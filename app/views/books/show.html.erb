@@ -1,4 +1,5 @@
 <div class="container">
+  <%= "#{@book.impressionist_count} views so far!" %>
   <h1><%= @book.title %></h1>
   <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %><br>
   <% if current_user %>
