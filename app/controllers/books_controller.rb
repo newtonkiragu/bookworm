@@ -48,6 +48,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @chapters = @book.chapters
     @comments = Comment.all
     if current_user == nil
       redirect_to new_user_registration_path
@@ -125,6 +126,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :content, :user_id, :status, :reading_list, :attachment)
+      params.require(:book).permit(:picture, :title, :author, :language, :category, :description, :user_id, :status, :reading_list, :attachment)
     end
 end

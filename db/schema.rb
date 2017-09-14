@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912063110) do
+ActiveRecord::Schema.define(version: 20170914072008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,21 @@ ActiveRecord::Schema.define(version: 20170912063110) do
     t.string "language"
     t.string "category"
     t.text "description"
-    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.boolean "status"
     t.string "reading_list"
     t.string "attachment"
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_chapters_on_book_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -85,4 +93,5 @@ ActiveRecord::Schema.define(version: 20170912063110) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
+  add_foreign_key "chapters", "books"
 end

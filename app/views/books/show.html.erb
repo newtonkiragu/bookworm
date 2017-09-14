@@ -11,8 +11,9 @@
 
   <%= link_to dislike_book_path(@book), method: :put do %>
 
-    <button class="btn btn-success" name="button">Downvote</button>
-    <%= @book.get_downvotes.size %>
+
+    
+
 
   <div class="dislike grow">
     <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
@@ -26,21 +27,25 @@
     to upvote or downvote.</p>
   <% end %>
 
-
   <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %>
   <%= link_to 'Remove from Reading List', book_remove_from_list_path(@book) %>
-
-  <p>
-    <%= markdown(@book.content) %>
-  </p>
 
   <p>
     <% @tweet = @book.title + ": " + @book.description %>
     <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
   </p>
+
   <% if current_user == @book.user %>
   <%= link_to 'Continue Writing', edit_book_path(@book) %>
-  |
+
+  <p>
+    <% @chapters.each do |chapter| %>
+      <%= chapter.content %>
+    <% end %>
+  </p>
+  <% if current_user.id == @book.user_id %>
+  <%= link_to 'Continue Writing', new_book_chapter_path(@book) %>
+
   <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
 <%= link_to 'Back', books_path %><br>
