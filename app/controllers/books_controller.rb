@@ -43,6 +43,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @user = current_user
     @chapters = @book.chapters
     @book = Book.find(params[:id])
     impressionist(@book, "message...") # 2nd argument is optional
