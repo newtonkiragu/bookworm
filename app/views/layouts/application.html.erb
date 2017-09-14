@@ -9,7 +9,10 @@
   </head>
 
   <body>
-        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix">
+
+    <%# unless landing == "landing" %>
+    <nav id="main-nav" class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix">
+
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-nav" aria-hidden="">
@@ -47,7 +50,7 @@
         </div>
         <!-- container-fluid -->
       </nav>
-      
+
       <%= yield %>
       <% unless flash.empty? %>
       <script type="text/javascript">

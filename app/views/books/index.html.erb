@@ -7,9 +7,6 @@
   </p>
   <% end %>
 
-  
-
-
   <% @books.each do |book| %>
   <div class="col-md-3 card">
     <div class="top">
@@ -29,16 +26,14 @@
       <%= book.description %><br>
     </div>
 
-     <%if user_signed_in?%>
+     
       <div class="bottom">
       <%= link_to book_path(book), id: 'card-button' do %>
       <button type="button" name="button" class="btn btn-info">Read Book</button>
       <% end %>
     </div>
-    <%else%>
 
-  <h5> Please Sign In to Read The Book</h5>
-<%end%>
+   
 
   </div>
   <% end %>
