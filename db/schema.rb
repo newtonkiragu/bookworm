@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913145054) do
+ActiveRecord::Schema.define(version: 20170914065828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170913145054) do
     t.boolean "status"
     t.string "reading_list"
     t.string "attachment"
+    t.integer "impressions_count"
   end
 
   create_table "clubs", force: :cascade do |t|
