@@ -119,3 +119,37 @@ a {
   position: relative;
   overflow: hidden;
 }
+.fa-plus-square, .fa-trash {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px;
+  .tooltiptext {
+    visibility: hidden;
+    font-size: 15px;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+}
+.fa-plus-square:hover .tooltiptext {
+    visibility: visible;
+}
+.fa-trash:hover .tooltiptext {
+    visibility: visible;
+}
+#book_info {
+  text-align: center;
+  height: 200px;
+}
+.profile_img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
