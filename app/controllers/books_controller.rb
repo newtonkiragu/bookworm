@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 
@@ -45,6 +44,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book = Book.find(params[:id])
+    impressionist(@book, "message...") # 2nd argument is optional
     @comments = Comment.all
     if current_user == nil
       redirect_to new_user_registration_path
