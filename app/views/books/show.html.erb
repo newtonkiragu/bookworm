@@ -1,21 +1,41 @@
 <div class="container">
-  <%= "#{@book.impressionist_count} views so far!" %>
-  <h1><%= @book.title %></h1>
-  <%= link_to 'Add to Reading List', book_add_to_list_path(@book) %><br>
-  <% if current_user %>
-  <%= link_to like_book_path(@book), method: :put do %>
-  <div class="like grow">
-    <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
-  </div>
-  <%= @book.get_upvotes.size %>
-  <% end %>
+  <div class="row" id="thin">
+    <div class="col-md-8 col-xs-7">
+      <div class="col-md-2">
+        <%= image_tag @book.picture_url.to_s, id: "img-content" %>
+      </div>
+      <div class="col-md-2">
+        <h5><%= @book.title %></h5>
+        <p>by <%= @book.author %></p>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-1">
+      <%= link_to book_add_to_list_path(@book) do %>
+      <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+      <% end %>
+    </div>
+    <div class="col-md-2 col-xs-2">
+      <%= link_to like_book_path(@book), method: :put do %>
+      <div class="like grow">
+        <i class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
+      </div>
+      <%#= @book.get_upvotes.size %>
+      <% end %>
 
-  <%= link_to dislike_book_path(@book), method: :put do %>
-  <div class="dislike grow">
-    <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+      <%= link_to dislike_book_path(@book), method: :put do %>
+      <div class="dislike grow">
+        <i class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i>
+      </div>
+      <%#= @book.get_downvotes.size %>
+      <% end %>
+    </div>
   </div>
-  <%= @book.get_downvotes.size %>
-  <% end %>
+  <i class="fa fa-eye" aria-hidden="true"><%= @book.impressionist_count(:filter=>:session_hash) %>
+</i>
+
+  <h1><%= @book.title %></h1>
+  <% if current_user %>
+
   <%= @book.score %>
 <% else %>
   <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %>
