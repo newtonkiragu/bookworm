@@ -36,6 +36,17 @@
   <h1><%= @book.title %></h1>
   <% if current_user %>
 
+  <%= link_to dislike_book_path(@book), method: :put do %>
+<<<<<<< HEAD
+    <button class="btn btn-success" name="button">Downvote</button>
+    <%= @book.get_downvotes.size %>
+=======
+  <div class="dislike grow">
+    <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+  </div>
+  <%= @book.get_downvotes.size %>
+  <% end %>
+>>>>>>> 1ffabb7685283ec015136b02255a7e4ee93cfc25
   <%= @book.score %>
 <% else %>
   <p><%= link_to "Log In", new_user_session_path %>/<%= link_to "Sign Up", new_user_registration_path %>
@@ -43,6 +54,7 @@
   <% end %>
 
 
+>>>>>>> 1ffabb7685283ec015136b02255a7e4ee93cfc25
   <p>
     <%= markdown(@book.content) %>
   </p>
