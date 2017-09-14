@@ -85,7 +85,10 @@ a {
 .dislike {
   display: inline-block;
   cursor: pointer;
-  margin: 10px;
+  // margin: 10px;
+}
+.fa-thumbs-up,.fa-thumbs-down {
+  color: black;
 }
 
 .dislike:hover,
@@ -97,4 +100,22 @@ a {
 
 .active {
   color: #2EBDD1;
+}
+
+#thin {
+  height: 70px;
+ padding: 6px;
+ padding-bottom: 2px;
+ padding-left: 18px;
+ border-style: solid;
+   #shrunk {
+    font-size: 2px;
+  }
+}
+#img-content {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
