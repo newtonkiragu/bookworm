@@ -1,8 +1,6 @@
 class BooksController < ApplicationController
 
-
   before_action :set_book, only: [:show, :edit, :update, :destroy, :remove_from_list]
-
 
   def add_to_list
     @book = Book.find(params[:id])
@@ -76,7 +74,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to root_path, notice: 'Book was successfully created.' }
+        format.html { redirect_to books_path, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
