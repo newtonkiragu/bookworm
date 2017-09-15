@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for [@book,@chapter], url: book_chapters_path do |form| %>
   <% if chapter.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +15,7 @@
     <%= form.text_field :title, id: :chapter_title, class:"form-control", required: true, placeholder: "chapter name" %>
   </div>
   <div class="field comment-form">
-    <%= form.text_area :content, id: :chapter_content, class:"form-control", required: true, placeholder: "type away..." %>
+    <%= form.text_area :content, id: :chapter_content, class:"form-control", required: true, placeholder: "type away...", rows: "50"%>
   </div>
 <br>
   <div class="actions">
@@ -22,3 +23,4 @@
     <%= form.submit "Publish Chapter", class:"btn btn-success left" %>
   </div>
 <% end %>
+</div>
