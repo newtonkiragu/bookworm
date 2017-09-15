@@ -19,6 +19,7 @@ a {
   text-align: center;
 }
 
+//books cards
 .card {
   @include BoxShadowHelper(1);
   transition: 0.25s box-shadow;

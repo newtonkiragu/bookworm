@@ -1,24 +1,20 @@
 <div class="container">
   <div class="row" id="profile">
-    
 
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
     <h1 class="username"><%= @user.name %></h1><br>
+    <div class="user-buttons">
     <%= link_to edit_user_registration_path, id: "edit_profile" do %>
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
-
-    <button type="button" class="btn btn-success"><%= link_to "Create BookClub", new_club_path %></button>
-
+    <%= link_to new_club_path, id: 'card-button' do %>
+    <button type="button" class="btn btn-success">Create BookClub</button>
+    <% end %>
+    </div>
   </div>
   <div class="reading_list">
-    <h1>My Reading List</h1>
-    <% @reading_list.each do |i| %>
-      <li><%= link_to i.title, book_path(i) %></li>
-      
-    <% end %>
-    <br>
-    <h1>My Work</h1>
+    
+    <h1>My Reading list</h1>
     <hr />
     <% @reading_list.each do |i| %>
     <li><%= link_to i.title, book_path(i) %>
@@ -27,7 +23,7 @@
           <span class="tooltiptext">Remove from Reading List</span>
         </i><br>
       <% end %>
-      <%= link_to "Create BookClub", new_club_path %></li>
+      
     <% end %>  
   </div>
   <div class="my_work">
@@ -52,7 +48,7 @@
           </div>
           <div class="bottom">
             <%= link_to book_path(book), id: 'card-button' do %>
-            <button type="button" name="button" class="btn btn-info">Read Book</button>
+            <button type="button" name="button" class="btn btn-success">Read Book</button>
             <% end %>
           </div>
         </div>
