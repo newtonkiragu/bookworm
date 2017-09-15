@@ -28,7 +28,7 @@
  // 	100%{opacity:1;background:#fff}
  // }
  body {
-   padding-top: 70px;
+   padding-top: 80px;
    height: 100%;
    margin: 0;
    overflow-x: hidden;
@@ -36,12 +36,16 @@
  }
 .navbar-brand {
   img{
-    height: 35px;
-    width: 60px;
+    height: 50px;
+    width: 70px;
   }
 }
 #main-nav {
 background-color: white;
+height: 70px;
+li a {
+  font-size: 15px;
+}
 }
 #profile {
   padding: 100px;
