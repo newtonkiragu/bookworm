@@ -61,15 +61,14 @@
         |
         <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       <% end %>
-      <%= link_to 'Back', books_path %><br>
       <%= link_to "Download Book", @book.attachment_url %>
       <p>
         <% @tweet = @book.title + ": " + @book.description %>
         <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
       </p>
     </div>
+    <br>
     <div class="row">
-
       <div class="margin-bottom">
         <%= link_to 'Add a review', new_book_comment_path(@book), id: 'new_link', remote: true %>
       </div>
