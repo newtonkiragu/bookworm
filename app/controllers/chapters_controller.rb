@@ -32,13 +32,14 @@ class ChaptersController < ApplicationController
   end
 
   def update
+    @book = @chapter.book
     respond_to do |format|
       if @chapter.update(chapter_params)
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @chapter }
+        format.html { redirect_to @book, notice: 'Chapter was successfully updated.' }
+        format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
   end
