@@ -2,22 +2,8 @@
   <div class="row" id="profile">
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
     <h1 class="username"><%= @user.name %></h1><br>
-    <%= link_to edit_user_registration_path, id: "edit_profile" do %>
-      <button type="button" class="btn btn-success">Edit Profile</button>
-    <% end %>
+    
 
-  </div>
-  <div class="reading_list">
-    <h1>My Reading List</h1>
-    <% @reading_list.each do |i| %>
-    <li><%= link_to i.title, book_path(i) %>
-      <%= link_to book_remove_from_list_path(i) do %>
-        <i class="fa fa-trash" aria-hidden="true">
-          <span class="tooltiptext">Remove from Reading List</span>
-        </i><br>
-      <% end %>
-      <%= link_to "Create BookClub", new_club_path %></li>
-      <% end %>
   </div>
   <div class="my_work">
     <h1>My Work</h1><br>
