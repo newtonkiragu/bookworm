@@ -57,6 +57,9 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    if current_user == nil
+      redirect_to new_user_registration_path
+    end
     @books = Book.all
     @book = Book.new
   end
