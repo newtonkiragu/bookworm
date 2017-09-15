@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def author
-    @book.user_id = @book.author
     @user = @author
     @books = @author.books
   end
