@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Editing Chapter</h1>
+  <p>Dont forget to write the chapters like this <strong>##Chapter 1</strong></p>
+
+  <%= form_for [@chapter], url: book_chapters_path do |form| %>
+    <% if @chapter.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+
+        <ul>
+        <% @chapter.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field comment-form">
+      <%= form.text_field :title, id: :chapter_title, class:"form-control", required: true, placeholder: "chapter name" %>
+    </div>
+    <div class="field comment-form">
+      <%= form.text_area :content, id: :chapter_content, class:"form-control", required: true, placeholder: "type away..." %>
+    </div>
+  <br>
+    <div class="actions">
+
+      <%= form.submit "Publish Chapter", class:"btn btn-success left" %>
+    </div>
+  <% end %>
+
+
+  <%= link_to 'Show' %> |
+  <%= link_to 'Back', book_chapter_path %>
+</div>

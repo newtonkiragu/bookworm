@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :update]
+  before_action :set_chapter, only: [:show, :update, :edit]
 
   def new
     @book = Book.find(params[:book_id])
@@ -9,6 +9,11 @@ class ChaptersController < ApplicationController
   def show
 
   end
+
+  def edit
+    @chapter
+  end
+
 
   def create
     @chapter = Chapter.new(chapter_params)
@@ -22,6 +27,19 @@ class ChaptersController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @chapter.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @book = @chapter.book
+    respond_to do |format|
+      if @chapter.update(chapter_params)
+        format.html { redirect_to @book, notice: 'Chapter was successfully updated.' }
+        format.json { render :show, status: :ok, location: @book }
+      else
+        format.html { render :edit }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
   end
