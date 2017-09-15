@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :chapters
-
+  is_impressionable :counter_cache => true, :column_name => :impressions_count, :unique => true
   acts_as_votable
   has_one :service
   def score

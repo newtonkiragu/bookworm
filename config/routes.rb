@@ -17,6 +17,7 @@ Rails.application.routes.draw do
    end
   end
   resources :users
+  get 'author/:id', :to => 'users#author', :as => :author
 
   root 'landings#index'
 

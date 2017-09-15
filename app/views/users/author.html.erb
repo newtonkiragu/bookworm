@@ -1,32 +1,15 @@
 <div class="container">
   <div class="row" id="profile">
-<<<<<<< HEAD
-    <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
-    <h3 class="username"><%= @user.name %></h3>
-    <br>
-
-=======
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
     <h1 class="username"><%= @user.name %></h1><br>
->>>>>>> c4927bdc016fe55a65823b784707b3294fc25ec3
     <%= link_to edit_user_registration_path, id: "edit_profile" do %>
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
-
-    <button type="button" class="btn btn-success"><%= link_to "Create BookClub", new_club_path %></button>
 
   </div>
   <div class="reading_list">
     <h1>My Reading List</h1>
     <% @reading_list.each do |i| %>
-<<<<<<< HEAD
-      <li><%= link_to i.title, book_path(i) %></li>
-      
-    <% end %>
-    <br>
-    <h1>My Work</h1>
-    <hr />
-=======
     <li><%= link_to i.title, book_path(i) %>
       <%= link_to book_remove_from_list_path(i) do %>
         <i class="fa fa-trash" aria-hidden="true">
@@ -38,7 +21,6 @@
   </div>
   <div class="my_work">
     <h1>My Work</h1><br>
->>>>>>> c4927bdc016fe55a65823b784707b3294fc25ec3
     <% @user.books.each do |book| %>
     <div class="col-md-3 card">
       <div class="top">

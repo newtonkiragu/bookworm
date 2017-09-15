@@ -38,6 +38,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate'
 gem 'social-share-button'
 gem 'font-awesome-rails'
+gem 'impressionist'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

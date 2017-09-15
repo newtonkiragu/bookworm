@@ -1,7 +1,7 @@
 <p class="white-text">
 <span class="glyphicon glyphicon-user"></span>
-<%= comment.user.name%>
-<%= comments.comment %>
+<%= comment.user.name%><br>
+<%= comment.comment %>
 <%if comment.user == current_user%><%= link_to '(remove)', [comment.book, comment] , method: :delete, data: {confirm: 'Are you sure'}, remote: true, class: 'del_comment' %>
 <%else%>
 <h1>No reviews yet!</h1>

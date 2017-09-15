@@ -1,9 +1,11 @@
 class BooksController < ApplicationController
 
 
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+
+  
 
   before_action :set_book, only: [:show, :edit, :update, :destroy, :remove_from_list]
+
 
 
   def add_to_list
@@ -26,17 +28,16 @@ class BooksController < ApplicationController
   end
 
   def remove_from_list
+    @book = Book.find(params[:book_id])
     user_ids = @book.reading_list.split(",")
     if user_ids.include? current_user.id.to_s
-      @book.reading_list.split(",").delete(current_user.id.to_s)
+      user_ids.delete(current_user.id.to_s)
+      @book.reading_list = user_ids.join
+      @book.save
+      redirect_to current_user, notice: 'Book was successfully removed from reading list.'
     end
-    respond_to do |format|
-        if @book.save
-          format.html { redirect_to @book, notice: 'Book was successfully removed from reading list.' }
-          format.json { render :show, status: :ok, location: @book }
-        end
-      end
   end
+
   # GET /books
   # GET /books.json
   def index
@@ -48,7 +49,10 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @chapters = @book.chapters
+    @user = User.find(@book.user_id)
+    @chapters = @book.chapters.order("title").page(params[:page]).per_page(1)
+    @book = Book.find(params[:id])
+    impressionist(@book, "message...") # 2nd argument is optional
     @comments = Comment.all
     if current_user == nil
       redirect_to new_user_registration_path
