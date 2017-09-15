@@ -13,9 +13,8 @@
     </div>
   </div>
   <div class="reading_list">
-    
+
     <h1>My Reading list</h1>
-    <hr />
     <% @reading_list.each do |i| %>
     <li><%= link_to i.title, book_path(i) %>
       <%= link_to book_remove_from_list_path(i) do %>
@@ -23,8 +22,8 @@
           <span class="tooltiptext">Remove from Reading List</span>
         </i><br>
       <% end %>
-      
-    <% end %>  
+
+    <% end %>
   </div>
   <div class="my_work">
     <h1>My Work</h1><br>
