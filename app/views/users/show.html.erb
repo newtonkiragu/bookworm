@@ -6,7 +6,9 @@
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
 
-    <button type="button" class="btn btn-success"><%= link_to "Create BookClub", new_club_path %></button>
+    <%= link_to new_club_path, id: 'card-button' do %>
+    <button type="button" class="btn btn-success">Create BookClub</button>
+    <% end %>
 
   </div>
   <div class="reading_list">
@@ -43,7 +45,7 @@
           </div>
           <div class="bottom">
             <%= link_to book_path(book), id: 'card-button' do %>
-            <button type="button" name="button" class="btn btn-info">Read Book</button>
+            <button type="button" name="button" class="btn btn-success">Read Book</button>
             <% end %>
           </div>
         </div>
