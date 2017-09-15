@@ -2,7 +2,7 @@
   <div class="row" id="profile">
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
     <h1 class="username"><%= @user.name %></h1><br>
-    
+
 
   </div>
   <div class="my_work">
@@ -27,7 +27,7 @@
           </div>
           <div class="bottom">
             <%= link_to book_path(book), id: 'card-button' do %>
-            <button type="button" name="button" class="btn btn-info">Read Book</button>
+            <button type="button" name="button" class="btn btn-success">Read Book</button>
             <% end %>
           </div>
         </div>
