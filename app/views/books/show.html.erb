@@ -50,7 +50,7 @@
     </div>
     <div class="content">
       <div class="fr-view">
-        <p><%= chapter.content %>
+        <p><%= chapter.content.html_safe %>
           <%= link_to 'Edit Chapter', edit_book_chapter_path(@book,chapter) %>
       </div>
     </div>
