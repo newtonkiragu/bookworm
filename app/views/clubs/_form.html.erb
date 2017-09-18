@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_with(model: club, local: true) do |form| %>
   <% if club.errors.any? %>
     <div id="error_explanation">
@@ -20,3 +22,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+</div>
