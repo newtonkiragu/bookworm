@@ -14,50 +14,56 @@
  *= require_self
  *= require toastr
  *= require social-share-button
+
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import url('https://fonts.googleapis.com/css?family=Rubik');
- @import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url( 'https://fonts.googleapis.com/css?family=Rubik');
+@import "font-awesome";
+@import "froala_editor.min";
+@import "froala_style.min";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+// body{animation: fadeIn 1s}
+// @keyframes fadeIn{
+// 	0%{opacity:0;background:#000}
+// 	90%{opacity:0}
+// 	100%{opacity:1;background:#fff}
+// }
+body {
+  padding-top: 80px;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: url('textured_paper.png');
+}
 
-
- // body{animation: fadeIn 1s}
- // @keyframes fadeIn{
- // 	0%{opacity:0;background:#000}
- // 	90%{opacity:0}
- // 	100%{opacity:1;background:#fff}
- // }
- body {
-   padding-top: 80px;
-   height: 100%;
-   margin: 0;
-   overflow-x: hidden;
-   background-image: url('textured_paper.png');
-
- }
 .navbar-brand {
-  img{
+  img {
     height: 50px;
     width: 70px;
   }
 }
+
 #main-nav {
-background-color: white;
-height: 70px;
-li a {
-  font-size: 15px;
-  font-weight: bold;
+  background-color: white;
+  height: 70px;
+
+  li a {
+    font-size: 15px;
+    font-weight: bold;
+  }
 }
-}
+
 #profile {
   padding: 100px;
   text-align: center;
-  background-image: url(http://www.de-vesting.be/files/uploads/images/o-OPEN-BOOK-facebook.jpg);
+  background-image: url("http://www.de-vesting.be/files/uploads/images/o-OPEN-BOOK-facebook.jpg");
   background-size: cover;
   font-family: 'Rubik',sans-serif;
 
-  .username {
-  }
+  .username {}
+
   .profile_img {
     border-radius: 50%;
     height: 150px;
@@ -75,7 +81,6 @@ h2 {
 }
 
 .login {
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -90,8 +95,8 @@ h2 {
   border-radius: 15px;
   border: 1px solid #000;
   background-color: rgba(#000, .1);
-
 }
+
 .actions {
   font-weight: 900;
   color: green;
@@ -99,5 +104,4 @@ h2 {
 
 .user-buttons {
   padding-left: 150px;
-  
 }
