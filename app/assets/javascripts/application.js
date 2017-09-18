@@ -18,6 +18,9 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require social-share-button
+//= require froala_editor.min.js
+
+
 
 document.addEventListener("turbolinks:load", function() {
  my_func();
@@ -74,3 +77,5 @@ $('.like, .dislike').on('click', function() {
     $(this).addClass('active');
 });
 
+
+$(function() { $('.fr-view').froalaEditor() });
