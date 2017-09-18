@@ -39,6 +39,7 @@ gem 'will_paginate'
 gem 'social-share-button'
 gem 'font-awesome-rails'
 gem 'impressionist'
+gem "wysiwyg-rails"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
