@@ -17,7 +17,7 @@
       <%= form.text_field :title, id: :chapter_title, class:"form-control", required: true %>
     </div>
     <div class="field comment-form">
-      <%= form.text_area :content, id: :chapter_content, class:"form-control", required: true, rows: "50" %>
+      <%= form.cktext_area :content, id: :chapter_content, class:"form-control", required: true, rows: "50", ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
     </div>
   <br>
     <div class="actions">
