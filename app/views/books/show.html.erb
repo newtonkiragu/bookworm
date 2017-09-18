@@ -59,7 +59,7 @@
         |
         <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       <% end %>
-      <%= link_to "Download Book", @book.attachment_url %>
+      <iframe src=<%= @book.attachment_url %> width="600" height="780" style="border: none;"> </iframe>
       <p>
         <% @tweet = @book.title + ": " + @book.description %>
         <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
