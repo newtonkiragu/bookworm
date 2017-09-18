@@ -13,12 +13,12 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 //= require toastr
 //= require social-share-button
-//= require froala_editor.min.js
 
 
 
@@ -76,6 +76,3 @@ $('.like, .dislike').on('click', function() {
     $('.active').removeClass('active');
     $(this).addClass('active');
 });
-
-
-$(function() { $('.fr-view').froalaEditor() });
