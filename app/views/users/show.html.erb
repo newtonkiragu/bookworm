@@ -17,7 +17,7 @@
     <h1>My Reading list</h1>
     <% @reading_list.each do |i| %>
     <li><%= link_to i.title, book_path(i) %>
-      <%= link_to book_remove_from_list_path(i) do %>
+      <%= link_to book_remove_from_list_path(i,i) do %>
         <i class="fa fa-trash" aria-hidden="true">
           <span class="tooltiptext">Remove from Reading List</span>
         </i><br>
