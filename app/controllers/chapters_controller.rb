@@ -1,5 +1,5 @@
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :update, :edit]
+  before_action :set_chapter, only: [:show]
 
   def new
     @book = Book.find(params[:book_id])
@@ -11,7 +11,8 @@ class ChaptersController < ApplicationController
   end
 
   def edit
-    @chapter
+    @book = Book.find(params[:book_id])
+    @chapter = @book.chapters.find(params[:id])
   end
 
 
@@ -32,7 +33,8 @@ class ChaptersController < ApplicationController
   end
 
   def update
-    @book = @chapter.book
+    @book = Book.find(params[:book_id])
+    @chapter = @book.chapters.find(params[:id])
     respond_to do |format|
       if @chapter.update(chapter_params)
         format.html { redirect_to @book, notice: 'Chapter was successfully updated.' }
