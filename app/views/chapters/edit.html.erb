@@ -1,28 +1,4 @@
 <div class="container">
   <h1>Editing Chapter</h1>
-
-  <%= form_for [@chapter], url: book_chapters_path do |form| %>
-    <% if @chapter.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
-
-        <ul>
-        <% @chapter.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div class="field comment-form">
-      <%= form.text_field :title, id: :chapter_title, class:"form-control", required: true %>
-    </div>
-    <div class="field comment-form">
-      <%= form.cktext_area :content, id: :chapter_content, class:"form-control", required: true, rows: "50", ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
-    </div>
-  <br>
-    <div class="actions">
-
-      <%= form.submit "Publish Chapter", class:"btn btn-success left" %>
-    </div>
-  <% end %>
-</div>
+    <%= render "form"%>
+  </div>
