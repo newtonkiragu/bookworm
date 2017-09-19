@@ -1,6 +1,6 @@
 <div class="container">
-<%= form_for [@book,@chapter], url: book_chapters_path do |form| %>
-  <% if chapter.errors.any? %>
+<%= form_for [@book,@chapter] do |form| %>
+  <% if @chapter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
 
