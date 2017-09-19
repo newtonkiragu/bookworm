@@ -18,7 +18,6 @@ a {
   border: 1px solid red;
   text-align: center;
 }
-
 //books cards
 .card {
   @include BoxShadowHelper(1);
@@ -82,20 +81,23 @@ a {
   transition: all 0.4s;
 }
 //upvote and downvote
-.like,
-.dislike {
+
+.dislike,
+.like {
   display: inline-block;
   cursor: pointer;
   // margin: 10px;
 }
-.fa-thumbs-up,.fa-thumbs-down {
+
+.fa-thumbs-down,
+.fa-thumbs-up {
   color: black;
 }
 
 .dislike:hover,
 .like:hover {
   color: #2EBDD1;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   transform: scale(1.1);
 }
 
@@ -105,13 +107,13 @@ a {
 
 #thin {
   height: 70px;
- padding: 6px;
- padding-bottom: 2px;
- padding-left: 18px;
-   #shrunk {
+  padding: 6px 6px 2px 18px;
+
+  #shrunk {
     font-size: 2px;
   }
 }
+
 #img-content {
   width: 50px;
   height: 50px;
@@ -119,10 +121,13 @@ a {
   position: relative;
   overflow: hidden;
 }
-.fa-plus-square, .fa-trash {
+
+.fa-plus-square,
+.fa-trash {
   position: relative;
   display: inline-block;
   border-bottom: 1px;
+
   .tooltiptext {
     visibility: hidden;
     font-size: 15px;
@@ -132,43 +137,50 @@ a {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
   }
 }
+
 .fa-plus-square:hover .tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }
+
 .fa-trash:hover .tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }
+
 #book_info {
   text-align: center;
   height: 200px;
 }
+
 .profile_img {
   border-radius: 50%;
   height: 50px;
   width: 50px;
 }
-
 //Customizing the pagination
 .pagination {
   background: white;
   cursor: default;
   height: 22px;
-  a, span, em {
+
+  a,
+  em,
+  span {
     padding: 0.2em 0.5em;
     display: block;
     float: left;
     margin-right: 1px;
   }
+
   .disabled {
     color: #999999;
     border: 1px solid #dddddd;
   }
+
   .current {
     font-style: normal;
     font-weight: bold;
@@ -176,15 +188,19 @@ a {
     color: white;
     border: 1px solid #2e6ab1;
   }
+
   a {
     text-decoration: none;
     color: #105cb6;
     border: 1px solid #9aafe5;
-    &:hover, &:focus {
+
+    &:focus,
+    &:hover {
       color: #000033;
       border-color: #000033;
     }
   }
+
   .page_info {
     background: #2e6ab1;
     color: white;
@@ -192,6 +208,7 @@ a {
     width: 22em;
     margin-bottom: 0.3em;
     text-align: center;
+
     b {
       color: #000033;
       background: #2e6ab1 + 60;
@@ -203,4 +220,10 @@ a {
 #reading_area {
   background-color: white;
   padding: 30px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
