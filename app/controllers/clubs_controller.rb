@@ -10,6 +10,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+    @user = @club.users
   end
 
   # GET /clubs/new
@@ -61,6 +62,14 @@ class ClubsController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @club = Club.find(params[:id])
+    if !@club.users.find(:id)
+        @club.users << @user unless @club.users.include? @user
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_club
@@ -69,6 +78,6 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:name)
+      params.require(:club).permit(:name, :user_id, :book_id)
     end
 end

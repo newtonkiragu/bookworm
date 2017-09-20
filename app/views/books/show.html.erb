@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row" id="thin">
     <div class="col-md-8 col-xs-8">
+
       <div class="col-md-3 col-xs-3">
         <%= image_tag @book.picture_url.to_s, id: "img-content" %>
       </div>
       <div class="col-md-4 col-xs-4">
+
       </div>
     </div>
     <div class="col-md-2 col-xs-2">
@@ -13,6 +15,8 @@
         <span class="tooltiptext">Add to Reading List</span>
       </i>
       <% end %>
+
+
     </div>
     <div class="col-md-2 col-xs-2">
       <%= link_to like_book_path(@book), method: :put do %>
@@ -29,6 +33,21 @@
       <% end %>
     </div>
   </div>
+    <div class="club">
+        <% if @book.club != nil %>
+          <%= link_to club_path do %>
+            <button type="button" class="btn btn-success">BookClub</button>
+          <% end %>
+        <% else %>
+        <% if current_user.id == @book.user_id %>
+            <%= link_to new_club_path(@book), id: 'card-button' do %>
+              <button type="button" class="btn btn-success">Create BookClub</button>
+            <% end %>
+        <% end %>
+        <% end %>
+
+    </div>
+
 
   <div class="row" id="book_info">
     <div class="icons">

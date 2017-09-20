@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914072008) do
+ActiveRecord::Schema.define(version: 20170920094434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170914072008) do
     t.string "reading_list"
     t.string "attachment"
     t.integer "impressions_count"
+    t.bigint "club_id"
+    t.index ["club_id"], name: "index_books_on_club_id"
   end
 
   create_table "chapters", force: :cascade do |t|
@@ -44,6 +46,13 @@ ActiveRecord::Schema.define(version: 20170914072008) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_clubs_on_book_id"
+  end
+
+  create_table "clubs_users", id: false, force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -120,5 +129,7 @@ ActiveRecord::Schema.define(version: 20170914072008) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
+  add_foreign_key "books", "clubs"
   add_foreign_key "chapters", "books"
+  add_foreign_key "clubs", "books"
 end
