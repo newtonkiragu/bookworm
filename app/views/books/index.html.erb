@@ -17,23 +17,17 @@
         <%= book.title %></h4>
       <h6 class="text-muted">by
         <%= book.author %></h6>
-        <h6><%= book.category %></h6>
+      <h6><%= book.category %></h6>
       <% if book.status == true %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
       <% end %>
     </div>
     <div class="truncate">
-      <%= book.description %><br>
+      <%= book.description %>
     </div>
-
-
-      <div class="bottom">
-      <%= link_to book_path(book), id: 'card-button' do %>
-      <button type="button" name="button" class="btn btn-success">Read Book</button>
-      <% end %>
-    </div>
-
-
+    <%= link_to book_path(book), id: 'card-button' do %>
+    <button type="button" name="button" class="btn btn-success">Read Book</button>
+    <% end %>
 
   </div>
   <% end %>
