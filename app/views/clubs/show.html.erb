@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @club.name %>
-</p>
+</h1>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+
+<%= link_to "Add to club", club_path(:club_id => @club.id, :user_id => @user), :method => :put %>
+
+
+
