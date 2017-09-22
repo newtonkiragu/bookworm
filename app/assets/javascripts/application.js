@@ -76,3 +76,20 @@ $('.like, .dislike').on('click', function() {
     $('.active').removeClass('active');
     $(this).addClass('active');
 });
+
+//nightmode
+function toggleNightMode() {
+  var color = document.getElementById('reading_area').style.color;
+
+  var backgroundColor = document.getElementById('reading_area').style.backgroundColor;
+
+
+  if (color == "black" && backgroundColor == "white") {
+        document.getElementById('reading_area').style.color="white";
+        document.getElementById('reading_area').style.backgroundColor="black";
+
+    } else {
+        document.getElementById('reading_area').style.color="black";
+        document.getElementById('reading_area').style.backgroundColor="white";
+    }
+}
