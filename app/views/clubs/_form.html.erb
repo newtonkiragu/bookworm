@@ -17,7 +17,7 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :club_name %>
   </div>
-  <%= form.text_field :book_id, id: :club_book_id, value: params[:format] %>
+  <%= form.hidden_field :book_id, id: :club_book_id, value: params[:format] %>
 
   <div class="actions">
     <%= form.submit %>
