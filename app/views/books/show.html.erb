@@ -22,7 +22,7 @@
         </div>
       </div>
 
-    <div class="col-md-6 col-xs-6">
+    <div class="col-md-6 col-xs-6" id="thumbs">
       <%= link_to like_book_path(@book), method: :put do %>
       <div class="like grow">
         <i class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
@@ -52,8 +52,13 @@
   </div>
   <hr>
   <div class="row">
+    <div class="row">
+
+    <div class="col-md-6 col-xs-6" id="paginate">
+
     <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
-    <div class="">
+  </div>
+    <div class="col-md-6 col-xs-6" id="reading_list">
       <%= link_to book_add_to_list_path(@book) do %>
       <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
         <span class="tooltiptext">Add to Reading List</span>
@@ -61,6 +66,7 @@
       <% end %>
 
     </div>
+  </div>
 
     <div id="reading_area">
       <% for chapter in @chapters %>
