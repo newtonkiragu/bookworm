@@ -41,29 +41,26 @@
                 <%end%>
                 <li>
                   <% if user_signed_in? %>
-                    <%= link_to current_user.name, current_user %>
-                <% end %>
-              </li>
-            </ul>
+                  <%= link_to current_user.name, current_user %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+            <!-- navbar-collapse -->
           </div>
-          <!-- navbar-collapse -->
-        </div>
-        <!-- container-fluid -->
-      </nav>
+          <!-- container-fluid -->
+        </nav>
 
-      <%= yield %>
-      <% unless flash.empty? %>
-      <script type="text/javascript">
-        <% flash.each do |f| %>
-        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-        toastr['<%= type %>']('<%= f[1] %>');
+        <%= yield %>
+        <% unless flash.empty? %>
+        <script type="text/javascript">
+          <% flash.each do |f| %>
+          <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+          toastr['<%= type %>']('<%= f[1] %>');
+          <% end %>
+        </script>
         <% end %>
-      </script>
-      <% end %>
 
+      </body>
 
-    </body>
-
-
-
-  </html>
+    </html>
