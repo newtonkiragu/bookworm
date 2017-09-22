@@ -1,0 +1,27 @@
+<div class="container">
+
+<%= form_for [@club,@post], url: club_posts_path do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :post %><br>
+    <%= form.text_area :post, id: :post_post, rows: "10", cols: "80" %>
+  </div>
+  <%= form.hidden_field :club_id, value: params[:club_id] %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>
