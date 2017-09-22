@@ -35,8 +35,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
-    @books = Book.search(params[:search])
+    if (params[:format]) != nil?
+      @books = Book.where("category =?", params[:format])
+      @format = params[:format]
+    else
+      @books = Book.all
+    end
+    # @books = Book.search(params[:search])
 
   end
 
