@@ -103,7 +103,7 @@ a {
 
 .dislike:hover,
 .like:hover {
-  color: #2EBDD1;
+  color: green;
   transition: all 0.2s ease-in-out;
   transform: scale(1.1);
 }
@@ -238,11 +238,26 @@ a {
 
 #reading_area {
   background-color: white;
-  padding: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+
+}
+#togBut {
+  border: 2px solid white;
+  border-radius: 25px;
+  background: white;
+  padding: 5px;
+}
+
+#togBut:hover {
+  background: black;
+  color: white;
 }

@@ -3,14 +3,9 @@
 
     <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
     <h1 class="username"><%= @user.name %></h1><br>
-    <div class="user-buttons">
     <%= link_to edit_user_registration_path, id: "edit_profile" do %>
       <button type="button" class="btn btn-success">Edit Profile</button>
     <% end %>
-    <%= link_to new_club_path, id: 'card-button' do %>
-    <button type="button" class="btn btn-success">Create BookClub</button>
-    <% end %>
-    </div>
   </div>
   <div class="reading_list">
 

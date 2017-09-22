@@ -4,22 +4,22 @@
   </div>
   <div class="row" id="thin">
 
-      <div class="col-md-6 col-xs-6">
-        <div class="club">
-          <% if @book.club != nil %>
-          <%= link_to club_path do %>
-          <button type="button" class="btn btn-success">BookClub</button>
-          <% end %>
-        <% else %>
-          <% if current_user.id == @book.user_id %>
-          <%= link_to new_club_path(@book), id: 'card-button' do %>
-          <button type="button" class="btn btn-success">Create BookClub</button>
-          <% end %>
-          <% end %>
-          <% end %>
+    <div class="col-md-6 col-xs-6">
+      <div class="club">
+        <% if @book.club != nil %>
+        <%= link_to club_path(@book.club) do %>
+        <button type="button" class="btn btn-success">BookClub</button>
+        <% end %>
+      <% else %>
+        <% if current_user.id == @book.user_id %>
+        <%= link_to new_club_path(@book), id: 'card-button' do %>
+        <button type="button" class="btn btn-success">Create BookClub</button>
+        <% end %>
+        <% end %>
+        <% end %>
 
-        </div>
       </div>
+    </div>
 
     <div class="col-md-6 col-xs-6" id="thumbs">
       <%= link_to like_book_path(@book), method: :put do %>
@@ -53,20 +53,20 @@
   <div class="row">
     <div class="row">
 
-    <div class="col-md-6 col-xs-6" id="paginate">
+      <div class="col-md-6 col-xs-6" id="paginate">
 
-    <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
-  </div>
-    <div class="col-md-6 col-xs-6" id="reading_list">
-      <%= link_to book_add_to_list_path(@book) do %>
-      <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
-        <span class="tooltiptext">Add to Reading List</span>
-      </i>
-      <% end %>
+        <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
+      </div>
+      <div class="col-md-6 col-xs-6" id="reading_list">
+        <%= link_to book_add_to_list_path(@book) do %>
+        <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
+          <span class="tooltiptext">Add to Reading List</span>
+        </i>
+        <% end %>
 
+      </div>
     </div>
-  </div>
-
+    <button onClick="toggleNightMode()" id=togBut>Night Mode</button>
     <div id="reading_area">
       <% for chapter in @chapters %>
       <div class="chapter">

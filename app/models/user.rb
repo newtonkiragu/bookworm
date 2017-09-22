@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :books
   has_many :comments
   has_many :clubs
+  has_many :posts
   mount_uploader :picture, PictureUploader
 
   # Include default devise modules. Others available are:
