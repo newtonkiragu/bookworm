@@ -1,24 +1,28 @@
 <div class="container">
+  <div class="row" id="image-row" style="background-image:url(<%= @book.picture_url.to_s %>);">
+    <%= image_tag @book.picture_url.to_s, class:"img-responsive", id:"book_image" %>
+    sjbfsbiuvid
+  </div>
   <div class="row" id="thin">
-    <div class="col-md-8 col-xs-8">
 
-      <div class="col-md-3 col-xs-3">
-        <%= image_tag @book.picture_url.to_s, id: "img-content" %>
+      <div class="col-md-6 col-xs-6">
+        <div class="club">
+          <% if @book.club != nil %>
+          <%= link_to club_path do %>
+          <button type="button" class="btn btn-success">BookClub</button>
+          <% end %>
+        <% else %>
+          <% if current_user.id == @book.user_id %>
+          <%= link_to new_club_path(@book), id: 'card-button' do %>
+          <button type="button" class="btn btn-success">Create BookClub</button>
+          <% end %>
+          <% end %>
+          <% end %>
+
+        </div>
       </div>
-      <div class="col-md-4 col-xs-4">
 
-      </div>
-    </div>
-    <div class="col-md-2 col-xs-2">
-      <%= link_to book_add_to_list_path(@book) do %>
-      <i class="fa fa-plus-square fa-2x" aria-hidden="true">
-        <span class="tooltiptext">Add to Reading List</span>
-      </i>
-      <% end %>
-
-
-    </div>
-    <div class="col-md-2 col-xs-2">
+    <div class="col-md-6 col-xs-6">
       <%= link_to like_book_path(@book), method: :put do %>
       <div class="like grow">
         <i class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
@@ -33,46 +37,42 @@
       <% end %>
     </div>
   </div>
-    <div class="club">
-        <% if @book.club != nil %>
-          <%= link_to club_path do %>
-            <button type="button" class="btn btn-success">BookClub</button>
-          <% end %>
-        <% else %>
-        <% if current_user.id == @book.user_id %>
-            <%= link_to new_club_path(@book), id: 'card-button' do %>
-              <button type="button" class="btn btn-success">Create BookClub</button>
-            <% end %>
-        <% end %>
-        <% end %>
-
-    </div>
-
 
   <div class="row" id="book_info">
     <div class="icons">
       <h1><%= @book.title %></h1><br>
-      <i class="fa fa-eye icon" aria-hidden="true"> <%= @book.impressionist_count(:filter=>:session_hash) %></i>
-      <i class="fa fa-star icon" aria-hidden="true"> <%= @book.score %></i><br><br>
+      <i class="fa fa-eye icon" aria-hidden="true">
+        <%= @book.impressionist_count(:filter=>:session_hash) %></i>
+      <i class="fa fa-star icon" aria-hidden="true">
+        <%= @book.score %></i><br><br>
       <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
-      <h5>by <%= link_to @book.author, author_path(@book.user_id) %></h5>
+      <h5>by
+        <%= link_to @book.author, author_path(@book.user_id) %></h5>
     </div>
   </div>
   <hr>
   <div class="row">
     <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
+    <div class="">
+      <%= link_to book_add_to_list_path(@book) do %>
+      <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
+        <span class="tooltiptext">Add to Reading List</span>
+      </i>
+      <% end %>
+
+    </div>
 
     <div id="reading_area">
-    <% for chapter in @chapters %>
-    <div class="chapter">
-      <h3><%= chapter.title %></h3>
-    </div>
-    <div class="content">
+      <% for chapter in @chapters %>
+      <div class="chapter">
+        <h3><%= chapter.title %></h3>
+      </div>
+      <div class="content">
         <p><%= chapter.content.html_safe %>
-          <%= link_to 'Edit Chapter', edit_book_chapter_path(@book,chapter) %><p>
-    </div>
-    <% end %>
-  </div>
+          <%= link_to 'Edit Chapter', edit_book_chapter_path(@book,chapter) %>
+          <p></div>
+          <% end %>
+        </div>
         <% if current_user.id == @book.user_id %>
         <%= link_to 'Continue Writing', new_book_chapter_path(@book) %>
         |
