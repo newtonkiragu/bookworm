@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :clubs
+  resources :clubs do    
+    resources :posts
+  end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
       sessions: 'users/sessions',
