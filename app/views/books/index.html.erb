@@ -1,12 +1,12 @@
 <div class="container">
 
-  <%= form_tag books_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search], placeholder: 'Search by Category' %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <% end %>
+  <!-- delete search -->
 
+  <% categories = Book.all.collect(&:category) %>
+  <% categories.each do |category| %>
+    <%= link_to category, books_path(category) %>
+  <% end %>
+<p>Showing <%= @format %> books</p>
   <% @books.each do |book| %>
   <div class="col-md-3 card">
     <div class="top">
