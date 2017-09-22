@@ -7,7 +7,7 @@
     <div class="col-md-6 col-xs-6">
       <div class="club">
         <% if @book.club != nil %>
-        <%= link_to club_path do %>
+        <%= link_to club_path(@book.club) do %>
         <button type="button" class="btn btn-success">BookClub</button>
         <% end %>
       <% else %>
