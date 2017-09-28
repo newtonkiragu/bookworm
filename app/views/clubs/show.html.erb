@@ -12,11 +12,18 @@
         <p>No reviews yet!</p>
       <% else %>
         <% @club.posts.each do |post| %>
-          <p>
-            <span class="glyphicon glyphicon-user"></span>
-            <%= User.find(post.user_id).name %><br>
-            <%= post.post %>
-        </p>
+          <div class="row" style="background-color: white; border-radius: 10px;">
+            <p>
+              <div class="col-sm-1" style="text-align: right;">
+                <span class="glyphicon glyphicon-user"></span>
+              </div>
+              <div class="col-sm-11" style="text-align: justify;">
+                <%= User.find(post.user_id).name %>
+                <span style="color: grey;"><%= post.created_at.to_s(:time) %></span></br>
+                <%= post.post %>
+              </div>
+            </p>
+          </div>
         <% end %>
       <% end %>
     </div>
