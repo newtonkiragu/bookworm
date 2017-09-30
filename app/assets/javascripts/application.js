@@ -19,6 +19,7 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require social-share-button
+//= require book
 
 
 
