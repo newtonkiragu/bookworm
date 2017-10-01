@@ -1,105 +1,95 @@
-<div class="container-fluid">
-  <div class="row" id="image-row" style="background-image:url(<%= @book.picture_url.to_s %>);">
-    <%= image_tag @book.picture_url.to_s, class:"img-responsive", id:"book_image" %>
-  </div>
-  <div class="row" id="thin">
-
-    <div class="col-md-6 col-xs-6">
-      <div class="club">
-        <% if @book.club != nil %>
-        <%= link_to club_path(@book.club) do %>
-        <button type="button" class="btn btn-success">BookClub</button>
-        <% end %>
-      <% else %>
-        <% if current_user.id == @book.user_id %>
-        <%= link_to new_club_path(@book), id: 'card-button' do %>
-        <button type="button" class="btn btn-success">Create BookClub</button>
-        <% end %>
-        <% end %>
-        <% end %>
-
+<div class="image_top">
+  <%=image_tag @book.picture_url.to_s, class:"book_image img-responsive"%>
+</div>
+<div class="container-fluid" style="background-color:white;">
+  <div class="container">
+    <div class="row book_info">
+      <div class="icons">
+        <h1><%= @book.title %></h1>
+        <p>
+          <i class="fa fa-eye icon" aria-hidden="true">
+            <%= @book.impressionist_count(:filter=>:session_hash) %></i>
+          <i class="fa fa-star icon" aria-hidden="true">
+            <%= @book.score %></i>
+        </p>
+        <%= image_tag @user.picture_url.to_s, class: 'profile_img'%>
+        <h5>by
+          <%= link_to @book.author, author_path(@book.user_id) %></h5>
       </div>
     </div>
-
-    <div class="col-md-6 col-xs-6" id="thumbs">
-      <%= link_to like_book_path(@book), method: :put do %>
-      <div class="like grow">
-        <i class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
-      </div>
-      <%#= @book.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_book_path(@book), method: :put do %>
-      <div class="dislike grow">
-        <i class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i>
-      </div>
-      <%#= @book.get_downvotes.size %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row" id="book_info">
-    <div class="icons">
-      <h1><%= @book.title %></h1><br>
-      <i class="fa fa-eye icon" aria-hidden="true">
-        <%= @book.impressionist_count(:filter=>:session_hash) %></i>
-      <i class="fa fa-star icon" aria-hidden="true">
-        <%= @book.score %></i><br><br>
-      <%= image_tag @user.picture_url.to_s, class: 'profile_img'%><br>
-      <h5>by
-        <%= link_to @book.author, author_path(@book.user_id) %></h5>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="row">
-
-      <div class="col-md-6 col-xs-6" id="paginate">
-
-        <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
-      </div>
-      <div class="col-md-6 col-xs-6" id="reading_list">
-        <%= link_to book_add_to_list_path(@book) do %>
-        <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
-          <span class="tooltiptext">Add to Reading List</span>
-        </i>
-        <% end %>
+    <div class="row reading_area">
+      <div class="row">
+        <div id="paginate">
+          <%= will_paginate @chapters, previous_label: h("<"), next_label: h(">") %>
+        </div>
 
       </div>
-    </div>
-    <button onClick="toggleNightMode()" id=togBut>Night Mode</button>
-    <div id="reading_area">
-      <% for chapter in @chapters %>
+    <% for chapter in @chapters %>
       <div class="chapter">
         <h3><%= chapter.title %></h3>
       </div>
       <div class="content">
-        <p><%= chapter.content.html_safe %>
-          <%= link_to 'Edit Chapter', edit_book_chapter_path(@book,chapter) %>
-          <p></div>
+        <p>
+          <%= chapter.content.html_safe %>
+          <% if current_user.id == @book.user_id %>
+            <%= link_to 'Edit Chapter', edit_book_chapter_path(@book,chapter) %>
           <% end %>
-        </div>
-        <% if current_user.id == @book.user_id %>
-        <%= link_to 'Continue Writing', new_book_chapter_path(@book) %>
-        |
-        <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      <% end %>
-      <!-- <iframe src=<%#= @book.attachment_url %> width="600" height="780" style="border: none;"> </iframe> -->
-      <p>
-        <% @tweet = @book.title + ": " + @book.description %>
-        <%= social_share_button_tag(@tweet, :allow_sites => %w(twitter facebook)) %>
-      </p>
-    </div>
-    <br>
-    <div class="row">
-      <div class="margin-bottom">
-        <%= link_to 'Add a review', new_book_comment_path(@book), id: 'new_link', remote: true %>
+        <p>
       </div>
-      <h3 class="white-text">Reviews:</h3>
-      <div class="main">
-        <% if @book.comments.nil? %>
-        <p>No reviews yet!</p>
-      <% else %>
-        <%= render @book.comments %>
-        <% end %>
+      <% end %>
+      <% if current_user.id == @book.user_id %>
+        <p>
+          <%= link_to 'Continue Writing', new_book_chapter_path(@book) %>
+            |
+          <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+      <p style="padding:10px;">
+        <span style="color:#404040;">
+          <%= link_to like_book_path(@book), method: :put do %>
+            <i class="fa fa-thumbs-up fa-2x like" aria-hidden="true"></i>
+          <% end %>
+        </span>
+        <span style="color:#404040;">
+          <%= link_to dislike_book_path(@book), method: :put do %>
+            <i class="fa fa-thumbs-down fa-2x like" aria-hidden="true"></i>
+          <% end %>
+        </span>
+        <span class="icon">
+          <%= link_to book_add_to_list_path(@book) do %>
+            <i class="fa fa-plus fa-2x" aria-hidden="true">
+        <span class="tooltiptext">Add to Reading List</span>
+            </i>
+          <% end %>
+        </span>
+        </p>
+        <div class="club">
+          <% if @book.club != nil %>
+          <%= link_to club_path(@book.club) do %>
+            <button type="button" class="btn preview">BookClub</button>
+          <% end %>
+          <% else %>
+          <% if current_user.id == @book.user_id %>
+          <%= link_to new_club_path(@book), id: 'card-button' do %>
+            <button type="button" class="btn preview">Create BookClub</button>
+          <% end %>
+          <% end %>
+          <% end %>
+          </div>
+
+          <div class="row reviews">
+            <div class="review-btn">
+              <%= link_to 'Add a review', new_book_comment_path(@book), id: 'new_link', remote: true %>
+            </div>
+            <h3 class="white-text">Reviews:</h3>
+            <div class="main">
+              <% if @book.comments.nil? %>
+              <p>No reviews yet!</p>
+            <% else %>
+              <%= render @book.comments %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
