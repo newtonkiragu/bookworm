@@ -7,31 +7,60 @@
   </div>
   <div class="my_work">
     <h1>My Work</h1><br>
-    <% @user.books.each do |book| %>
-    <div class="col-md-3 card">
-      <div class="top">
-        <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
-      </div>
-      <div class="details">
-        <h4 class="card-title">
-          <%= book.title %></h4>
-          <h6 class="text-muted">by
-            <%= book.author %></h6>
-            <h6><%= book.category %></h6>
-            <% if book.status == true %>
-            <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
-            <% end %>
-          </div>
-          <div class="truncate">
-            <%= book.description %><br>
-          </div>
-          <div class="bottom">
-            <%= link_to book_path(book), id: 'card-button' do %>
-            <button type="button" name="button" class="btn btn-success">Read Book</button>
-            <% end %>
+    <div class="grid-shuffle">
+      <ul id="grid" class="row">
+      <% @user.books.each do |book| %>
+      <li class="book-item col-sm-12 col-md-6">
+        <div class="bk-img">
+          <div class="bk-wrapper">
+            <div class="bk-book bk-bookdefault">
+              <div class="bk-front">
+                <div class="bk-cover" style="background-image: url(<%= book.picture_url.to_s %>); background-size: cover;"></div>
+              </div>
+              <div class="bk-back"></div>
+              <div class="bk-left"></div>
+            </div>
           </div>
         </div>
-        <% end %>
+        <div class="item-details">
+          <h3 class="book-item_title"><%= book.title %></h3>
+          <p class="author">by
+            <%= book.author %></p>
+          <p class="author"><%= book.category %></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="overlay-image">
+                  <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
+                  <div class="back-color"></div>
+                </div>
+                <div class="overlay-desc activated">
+                  <h2 class="overlay_title"><%= book.title %></h2>
+                  <p class="author">by
+                    <%= book.author %></p>
+                  <p class="synopsis"><%= book.description %></p>
+                  <% if book.status == true %>
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
+                  <% end %>
+                  <%= link_to 'Read Book', book_path(book), class:"button preview" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
   </div>
 
 </div>
