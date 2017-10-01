@@ -28,7 +28,7 @@
             <h3 class="book-item_title"><%= book.title %></h3>
             <p class="author">by
               <%= book.author %></p>
-              <p class="author"><%= book.category %></p>
+            <p class="author"><%= book.category %></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
           </div>
@@ -55,13 +55,14 @@
                     <% end %>
                     <%= link_to 'Read Book', book_path(book), class:"button preview" %>
                   </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </li>
         <% end %>
       </ul>
-    </section>
+    </div>
+  </section>
 
-  </div>
+</div>
