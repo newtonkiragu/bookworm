@@ -15,12 +15,11 @@
  *= require toastr
  *= require social-share-button
 
+
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url( 'https://fonts.googleapis.com/css?family=Rubik');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,300,700,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+@import url( 'https://fonts.googleapis.com/css?family=Rubik|Hind|Lato|Roboto+Slab|Indie+Flower');
 @import "font-awesome";
 
 // body{animation: fadeIn 1s}
@@ -41,11 +40,19 @@ body {
 }
 
 .navbar-brand {
-  img {
-    height: 50px;
-    width: 70px;
+  .logo {
+    border: 2px solid grey;
+    font-size: 20px;
+    padding: 10px;
+    box-shadow: 2px 3px 4px grey;
+    color: black;
+  }
+  .logo-name {
+    color: #219E9A;
+    font-weight: bold;
   }
 }
+
 
 #main-nav {
   background-color: white;
@@ -71,15 +78,6 @@ body {
     height: 150px;
     width: 150px;
   }
-}
-
-h2 {
-  text-align: center;
-  margin-top: 70px;
-  padding-right: 100px;
-  text-shadow: 0 1px 2px rgba(#000,.5);
-  font-weight: 900;
-  color: green;
 }
 
 .login {

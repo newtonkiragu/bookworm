@@ -1,3 +1,45 @@
 // Place all the styles related to the clubs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.club_main {
+  margin-top: 50px;
+  text-align: center;
+
+  .club_header {
+    padding: 20px;
+    background-color: #33bbff;
+    color: white;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .club_image {
+    border-radius: 50%;
+    height: 70px;
+    margin: auto;
+    width: 70px;
+  }
+
+  .club_page_header {
+    text-align: center;
+  }
+
+  .club_page {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #33bbff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    p {
+      border: 1px solid #b3b3b3;
+      padding: 15px;
+      background-color: #f2f2f2;
+      font-size: 17px;
+      border-radius: 7px;
+    }
+  }
+}

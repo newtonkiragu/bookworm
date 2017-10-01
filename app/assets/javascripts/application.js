@@ -22,7 +22,6 @@
 //= require book
 
 
-
 document.addEventListener("turbolinks:load", function() {
  my_func();
 })
