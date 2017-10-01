@@ -27,35 +27,13 @@
           <p class="author">by
             <%= book.author %></p>
           <p class="author"><%= book.category %></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Details</button>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div class="overlay-image">
-                  <%= image_tag book.picture_url.to_s, class: "card-img-top img-responsive", id: "image-main" %>
-                  <div class="back-color"></div>
-                </div>
-                <div class="overlay-desc activated">
-                  <h2 class="overlay_title"><%= book.title %></h2>
-                  <p class="author">by
-                    <%= book.author %></p>
-                  <p class="synopsis"><%= book.description %></p>
-                  <% if book.status == true %>
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
-                  <% end %>
-                  <%= link_to 'Read Book', book_path(book), class:"button preview" %>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% if book.status == true %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true">Completed</span>
+          <% end %>
+          <p><%= book.description %></p>
+          <%= link_to book_path(book) do %>
+            <button type="button" class="button preview">Read Book</button>
+          <% end %>
         </div>
       </li>
       <% end %>
