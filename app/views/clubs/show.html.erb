@@ -1,27 +1,27 @@
-<div class="container" style="text-align:center;">
-  <h1><%= @club.name %>
-    Club</h1>
-  <h2><%= @club.book.title %></h2>
-  <p>
-    <strong>Book description:</strong>
-    <%= @club.book.description %></p>
-  <div class="row">
-    <h3 class="white-text">Posts:</h3>
-    <div class="main">
-      <% if @club.posts.nil? %>
-        <p>No reviews yet!</p>
-      <% else %>
-        <% @club.posts.each do |post| %>
-          <p>
-            <span class="glyphicon glyphicon-user"></span>
-            <%= User.find(post.user_id).name %><br>
-            <%= post.post %>
-        </p>
-        <% end %>
-      <% end %>
+<div class="container club_main">
+  <div class="club_header">
+    <h1><%= @club.name %> Club</h1>
+    <h2><%= @club.book.title %></h2>
+    <p><strong>Book description:</strong><%= @club.book.description %></p>
+    <%= image_tag @book.picture_url.to_s, class: "club_image img-responsive"%>
+  </div>
+
+  <div class="club_page">
+    <% if @club.posts.nil? %>
+    <p>No posts yet!</p>
+  <% else %>
+    <div class="club_page_header">
+      <h3>MEMBERS POSTS</h3>
     </div>
-    <div class="margin-bottom">
-      <%= link_to 'Add a post', new_club_post_path(@club) %>
-    </div>
+    <% @club.posts.each do |post| %>
+    <p>
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <span><%= User.find(post.user_id).name %></span>:
+      <span><%= post.post %></span>
+    </p>
+    <% end %>
+    <% end %>
+
+    <%= link_to 'Post', new_club_post_path(@club) %>
   </div>
 </div>
