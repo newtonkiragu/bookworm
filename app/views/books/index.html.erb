@@ -3,6 +3,7 @@
   <section id="book_list">
     <div class="toolbar row">
       <div class="filter-options col-sm-12 col-md-9">
+        <%= link_to "All", books_path, class: "filter-item" %>
         <% categories = Book.all.collect(&:category) %>
         <% categories.each do |category| %>
         <%= link_to category, books_path(category), class: "filter-item" %>
