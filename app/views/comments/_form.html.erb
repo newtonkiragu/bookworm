@@ -10,12 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <div class="field comment-form">
+  <div class="field">
     <%= form.text_area :comment, id: :comment_comment, class:"form-control", required: true%>
-  </div>
-<br>
-  <div class="actions">
-
-    <%= form.submit "Create Review", class:"btn btn-success left" %>
+    <%= form.submit "Add Review", style: "background-color: #219E9A; float: right; color: white;"%>
   </div>
 <% end %>

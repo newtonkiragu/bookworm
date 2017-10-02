@@ -22,21 +22,12 @@
 @import url( 'https://fonts.googleapis.com/css?family=Rubik|Hind|Lato|Roboto+Slab|Indie+Flower');
 @import "font-awesome";
 
-// body{animation: fadeIn 1s}
-// @keyframes fadeIn{
-// 	0%{opacity:0;background:#000}
-// 	90%{opacity:0}
-// 	100%{opacity:1;background:#fff}
-// }
-.btn {
-  margin-top: 0px;
-}
 body {
   padding-top: 80px;
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-  background-image: url('textured_paper.png');
+  background-color: #ecf0f1;
 }
 
 .navbar-brand {
